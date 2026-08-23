@@ -158,6 +158,17 @@
     .status-card .icon{font-size:2rem}
     .status-card h3{margin:.4rem 0 .3rem;font-size:1.15rem}
     .status-card p{margin:0;color:var(--muted)}
+    .status-inline-title{
+      max-width:none;
+      margin-bottom:26px;
+    }
+    .status-inline-title span{
+      font-size:1.08rem;
+      font-weight:500;
+      letter-spacing:0;
+      line-height:1.65;
+      color:var(--muted);
+    }
 
     .medical-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
     .xray{overflow:hidden;border-radius:22px;background:#121212;border:1px solid #292929}
@@ -903,7 +914,6 @@
 
     <section id="historia" class="story-integrated">
       <div class="container">
-        <span class="eyebrow">A história do Tadeu</span>
         <h2 class="section-title">Eu sou o Tadeuzinho.</h2>
 
         <div class="story-full-card">
@@ -943,6 +953,10 @@
                 <div class="slider-slide"><img src="assets/antes-3.jpg" alt="Tadeuzinho feliz com a língua de fora, antes do acidente" /></div>
                 <div class="slider-slide"><img src="assets/antes-4.jpg" alt="Tadeuzinho entre plantas, antes do acidente" /></div>
                 <div class="slider-slide"><img src="assets/antes-5.jpg" alt="Tadeuzinho em cenário de festa junina, antes do acidente" /></div>
+                <div class="slider-slide"><video controls preload="metadata" playsinline src="assets/antes-video-1.mp4"></video></div>
+                <div class="slider-slide"><video controls preload="metadata" playsinline src="assets/antes-video-2.mp4"></video></div>
+                <div class="slider-slide"><video controls preload="metadata" playsinline src="assets/antes-video-3.mp4"></video></div>
+                <div class="slider-slide"><video controls preload="metadata" playsinline src="assets/antes-video-4.mp4"></video></div>
               </div>
 
               <div class="slider-nav">
@@ -973,7 +987,6 @@
                 </div>
                 <div class="slider-slide">
                   <video controls preload="metadata" playsinline src="assets/depois-video-1.mp4"></video>
-                  <div class="slide-caption">Vídeo da recuperação do Tadeu.</div>
                 </div>
                 <div class="slider-slide">
                   <video controls preload="metadata" playsinline src="assets/depois-video-2.mp4"></video>
@@ -1009,8 +1022,7 @@
 <section class="status-band">
       <div class="container">
         <span class="eyebrow">Onde estamos agora</span>
-        <h2 class="section-title">O Tadeu está lutando — e sendo muito corajoso.</h2>
-        <p class="section-intro">O tratamento é emergencial e envolve várias etapas. A família está acompanhando tudo de perto e concentrada em dar a ele a melhor chance de recuperação possível.</p>
+        <p class="section-title status-inline-title">O Tadeu está lutando e sendo muito corajoso. <span>O tratamento é emergencial e envolve várias etapas. A família está acompanhando tudo de perto e concentrada em dar a ele a melhor chance de recuperação possível.</span></p>
         <div class="status-grid">
           <div class="status-card">
             <div class="icon">🏥</div>
@@ -1077,7 +1089,6 @@
       if (!container) return;
       container.innerHTML = `
         <video controls autoplay preload="metadata" playsinline src="${src}"></video>
-        <div class="slide-caption">Conteúdo sensível: registro feito após o acidente.</div>
       `;
       const video = container.querySelector('video');
       video?.play?.().catch(()=>{});
