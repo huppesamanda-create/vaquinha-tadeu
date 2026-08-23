@@ -1,4 +1,5 @@
 import express from "express";
+import fs from "node:fs/promises";
 import pg from "pg";
 
 const { Pool } = pg;
@@ -17,10 +18,36 @@ const pool = new Pool({
 });
 
 app.use(express.json({ limit: "20kb" }));
+app.set("trust proxy", 1);
+
 app.use(express.static(process.cwd(), {
   extensions: ["html"],
-  index: "index.html",
+  index: false,
 }));
+
+const indexTemplate = await fs.readFile(
+  new URL("./index.html", import.meta.url),
+  "utf8"
+);
+
+function renderIndex(req, res) {
+  const forwardedHost = req.get("x-forwarded-host");
+  const host = forwardedHost || req.get("host");
+  const protocol = req.get("x-forwarded-proto")?.split(",")[0] || req.protocol || "https";
+  const origin = `${protocol}://${host}`;
+  const pageUrl = `${origin}${req.path === "/ajudeotadeu" ? "/ajudeotadeu" : "/"}`;
+  const imageUrl = `${origin}/assets/social-share-tadeu.png`;
+
+  const page = indexTemplate
+    .replaceAll("__PAGE_URL__", pageUrl)
+    .replaceAll("__OG_IMAGE_URL__", imageUrl);
+
+  res.type("html").send(page);
+}
+
+app.get("/", renderIndex);
+app.get("/ajudeotadeu", renderIndex);
+app.get("/ajudeotadeu/", (_req, res) => res.redirect(301, "/ajudeotadeu"));
 
 function centsToReais(cents) {
   return Number(cents || 0) / 100;
