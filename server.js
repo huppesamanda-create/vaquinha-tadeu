@@ -31,12 +31,13 @@ const indexTemplate = await fs.readFile(
 );
 
 function renderIndex(req, res) {
+  res.set("Cache-Control", "no-cache");
   const forwardedHost = req.get("x-forwarded-host");
   const host = forwardedHost || req.get("host");
   const protocol = req.get("x-forwarded-proto")?.split(",")[0] || req.protocol || "https";
   const origin = `${protocol}://${host}`;
   const pageUrl = `${origin}${req.path === "/ajudeotadeu" ? "/ajudeotadeu" : "/"}`;
-  const imageUrl = `${origin}/assets/social-share-tadeu.png`;
+  const imageUrl = `${origin}/assets/social-share-tadeu-final.png`;
 
   const page = indexTemplate
     .replaceAll("__PAGE_URL__", pageUrl)
