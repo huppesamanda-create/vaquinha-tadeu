@@ -364,7 +364,7 @@
       position:relative;
       overflow:hidden;
       border-radius:18px;
-      background:#eee;
+      background:#f3ede4;
     }
     .slider-track{
       display:flex;
@@ -375,20 +375,26 @@
       flex:0 0 100%;
       min-width:0;
       position:relative;
-      aspect-ratio:4 / 3;
-      background:#eee;
+      aspect-ratio:4 / 5;
+      background:#f3ede4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
     }
     .slider-slide img,
     .slider-slide video{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:contain;
       display:block;
+      background:transparent;
     }
     .slider-slide.contain{
       background:#111;
     }
-    .slider-slide.contain img{
+    .slider-slide.contain img,
+    .slider-slide.contain video{
       object-fit:contain;
       background:#111;
     }
@@ -776,6 +782,7 @@
       .story-full-card{padding:22px}
       .story-full-card p{text-align:left}
       .slider-card{padding:16px}
+      .slider-slide{aspect-ratio:4 / 5}
       .pix-quick-row{grid-template-columns:1fr}
       .pix-copy-small{width:100%}
       .donation-form.compact{grid-template-columns:1fr}
