@@ -42,75 +42,76 @@
       font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
     }
 
-    .hero{padding:24px 0 58px}
+    .hero{padding:18px 0 34px}
     .hero-card{
       display:grid;
-      grid-template-columns:1.02fr .98fr;
-      min-height:650px;
+      grid-template-columns:1.08fr .92fr;
+      min-height:480px;
       overflow:hidden;
-      border-radius:36px;
+      border-radius:30px;
       background:#201c18;
       box-shadow:var(--shadow);
     }
     .hero-copy{
       color:#fff;
-      padding:70px 56px;
+      padding:46px 48px;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
     .hero h1{
-      font-size:clamp(3rem,6.4vw,6rem);
-      line-height:.94;
-      margin:.9rem 0 1rem;
-      letter-spacing:-.055em;
+      font-size:clamp(2.8rem,5.2vw,5rem);
+      line-height:.96;
+      margin:.75rem 0 .9rem;
+      letter-spacing:-.05em;
     }
     .hero .lead{
-      font-size:clamp(1.08rem,1.7vw,1.3rem);
+      font-size:clamp(1rem,1.45vw,1.18rem);
       max-width:560px;
-      color:rgba(255,255,255,.88);
+      color:rgba(255,255,255,.86);
+      margin:0;
     }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
-      min-height:52px;padding:0 22px;border-radius:999px;text-decoration:none;font-weight:900;
+      min-height:50px;padding:0 20px;border-radius:999px;text-decoration:none;font-weight:900;
       transition:.2s ease;cursor:pointer;border:0;font:inherit;
     }
     .btn:hover{transform:translateY(-2px)}
     .btn-primary{background:var(--yellow);color:#2c2116;box-shadow:0 10px 30px rgba(244,185,66,.28)}
     .btn-light{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.30)}
-    .mini-note{margin-top:20px;font-size:.9rem;color:rgba(255,255,255,.72)}
+    .mini-note{margin-top:16px;font-size:.87rem;color:rgba(255,255,255,.68)}
     .hero-photo{
-      min-height:650px;
+      min-height:480px;
       position:relative;
       background:#161412;
+      overflow:hidden;
     }
     .hero-photo img{
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center center;
+      object-position:center 47%;
     }
     .hero-photo::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(90deg,rgba(32,28,24,.34),transparent 30%);
+      background:linear-gradient(90deg,rgba(32,28,24,.24),transparent 32%);
       pointer-events:none;
     }
     .hero-photo-label{
       position:absolute;
       z-index:2;
-      right:22px;
-      bottom:22px;
-      max-width:250px;
+      right:18px;
+      bottom:18px;
       background:rgba(255,255,255,.92);
       color:#2d2823;
-      border-radius:18px;
-      padding:12px 14px;
-      font-size:.9rem;
-      line-height:1.35;
-      box-shadow:0 8px 25px rgba(0,0,0,.18);
+      border-radius:999px;
+      padding:9px 13px;
+      font-size:.84rem;
+      font-weight:900;
+      box-shadow:0 8px 25px rgba(0,0,0,.14);
     }
 
     section{padding:76px 0}
@@ -200,6 +201,97 @@
     .help-wrap{
       display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:stretch;
     }
+
+    .quick-fundraising{
+      padding:34px 0 54px;
+      background:linear-gradient(180deg,#fffaf1 0%,#f4eee3 100%);
+    }
+    .quick-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:20px;
+    }
+    .quick-head .section-title{
+      margin-bottom:0;
+      font-size:clamp(1.9rem,3.4vw,2.8rem);
+    }
+    .quick-head p{
+      max-width:500px;
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+    .quick-grid{
+      display:grid;
+      grid-template-columns:.88fr 1.12fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .quick-grid .fund-card{
+      position:static;
+      padding:26px;
+      box-shadow:none;
+      min-width:0;
+    }
+    .quick-grid .fund-amount{
+      font-size:clamp(2.5rem,4.8vw,4rem);
+      margin:8px 0 6px;
+    }
+    .quick-grid .fund-goal{margin-bottom:18px}
+    .quick-grid .fund-note{
+      margin-top:18px;
+      padding:13px 15px;
+      font-size:.86rem;
+    }
+    .quick-grid .pix-box{
+      padding:26px;
+      min-width:0;
+    }
+    .pix-quick-row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:10px;
+      align-items:center;
+      margin:10px 0 18px;
+    }
+    .pix-quick-row .placeholder{
+      min-width:0;
+      padding:13px 14px;
+      font-size:.9rem;
+    }
+    .pix-copy-small{
+      min-height:44px;
+      padding-inline:16px;
+      white-space:nowrap;
+    }
+    .donation-form.compact{
+      margin-top:12px;
+      grid-template-columns:150px minmax(220px,1fr) auto;
+      gap:10px;
+      align-items:end;
+    }
+    .donation-form.compact .field{min-width:0}
+    .donation-form.compact .field-help{
+      grid-column:1 / -1;
+    }
+    .donation-form.compact .donation-submit{
+      width:auto;
+      min-height:50px;
+      white-space:nowrap;
+    }
+    .donation-form.compact .form-status{
+      grid-column:1 / -1;
+      min-height:0;
+    }
+    .quick-email-note{
+      margin-top:10px;
+      font-size:.79rem;
+      color:rgba(255,255,255,.68);
+      line-height:1.4;
+    }
+    .gallery-section{padding-top:58px}
 
     .transparency-section{
       background:
@@ -468,12 +560,18 @@
     footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
     @media (max-width: 860px){
-      .hero{padding-top:18px}
+      .hero{padding-top:14px}
       .hero-card{grid-template-columns:1fr;min-height:auto}
-      .hero-copy{padding:42px 30px 34px}
-      .hero-photo{min-height:500px;order:-1}
-      .hero-photo::after{background:linear-gradient(180deg,transparent 70%,rgba(32,28,24,.28))}
+      .hero-copy{padding:34px 28px 30px}
+      .hero-photo{min-height:350px;order:-1}
+      .hero-photo img{object-position:center 43%}
+      .hero-photo::after{background:linear-gradient(180deg,transparent 70%,rgba(32,28,24,.24))}
       .grid-2,.help-wrap{grid-template-columns:1fr}
+      .quick-head{display:block}
+      .quick-head p{margin-top:10px}
+      .quick-grid{grid-template-columns:1fr}
+      .donation-form.compact{grid-template-columns:1fr 1fr}
+      .donation-form.compact .donation-submit{grid-column:1 / -1;width:100%}
       .transparency-shell{grid-template-columns:1fr}
       .fund-card{position:static}
       .status-grid,.medical-grid{grid-template-columns:1fr}
@@ -484,10 +582,16 @@
     @media (max-width: 560px){
       .container{width:min(100% - 22px,1120px)}
       section{padding:58px 0}
-      .hero-card{border-radius:26px}
-      .hero h1{font-size:3.25rem}
-      .hero-photo{min-height:410px}
-      .hero-photo-label{right:14px;bottom:14px;max-width:220px;font-size:.82rem}
+      .hero-card{border-radius:24px}
+      .hero h1{font-size:3rem}
+      .hero-photo{min-height:310px}
+      .hero-photo-label{right:12px;bottom:12px;font-size:.78rem}
+      .quick-fundraising{padding:26px 0 42px}
+      .quick-grid .fund-card,.quick-grid .pix-box{padding:21px}
+      .pix-quick-row{grid-template-columns:1fr}
+      .pix-copy-small{width:100%}
+      .donation-form.compact{grid-template-columns:1fr}
+      .donation-form.compact .donation-submit{grid-column:auto}
       .hero-actions{display:grid}
       .btn{width:100%}
       .story-card,.help-card,.pix-box{padding:24px;border-radius:22px}
@@ -522,14 +626,102 @@
         </div>
 
         <div class="hero-photo">
-          <img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" />
-          <div class="hero-photo-label">O Tadeu antes do acidente: especialista em achar galhos maiores do que ele. 🌿</div>
+          <img src="assets/tadeu-hero-fofo.png" alt="Tadeuzinho olhando para a câmera" />
+          <div class="hero-photo-label">Oi, eu sou o Tadeuzinho. 🐾</div>
         </div>
       </div>
     </div>
   </header>
 
   <main>
+    <section id="ajudar" class="quick-fundraising">
+      <div class="container">
+        <div class="quick-head">
+          <div>
+            <span class="eyebrow">💛 Ajude o Tadeu</span>
+            <h2 class="section-title">Estamos buscando R$ 6.000,00 para o tratamento.</h2>
+          </div>
+          <p>Faça o PIX e, depois, informe o valor doado. Assim o contador é atualizado para todo mundo acompanhar a arrecadação.</p>
+        </div>
+
+        <div class="quick-grid">
+          <div class="fund-card">
+            <div class="fund-label">Total arrecadado</div>
+            <div class="fund-amount" id="fund-amount">Carregando…</div>
+            <div class="fund-goal">de uma meta de <strong>R$ 6.000,00</strong></div>
+
+            <div class="progress-track" aria-label="Progresso da arrecadação">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-meta">
+              <span id="progress-percent">Atualizando…</span>
+              <span id="progress-remaining"></span>
+            </div>
+
+            <div class="fund-note">
+              O contador considera os valores informados pelos próprios doadores após a realização do PIX.
+            </div>
+          </div>
+
+          <aside class="pix-box">
+            <div class="donation-live-area">
+              <div class="fund-label" style="color:rgba(255,255,255,.68)">Chave PIX</div>
+              <div class="pix-quick-row">
+                <div class="placeholder" id="pix-key">huppesamanda@gmail.com</div>
+                <button class="btn warning-btn pix-copy-small" type="button" onclick="copiarPix()">Copiar PIX</button>
+              </div>
+
+              <form class="donation-form compact" id="donation-form" novalidate>
+                <div class="field">
+                  <label for="donation-amount">Quanto você doou?</label>
+                  <input id="donation-amount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="R$ 50,00" required />
+                </div>
+
+                <div class="field">
+                  <label for="donation-email">E-mail <span style="font-weight:500;opacity:.7">(opcional)</span></label>
+                  <input id="donation-email" name="email" type="email" autocomplete="email" placeholder="Para receber a prestação de contas" maxlength="254" />
+                </div>
+
+                <div class="honeypot" aria-hidden="true">
+                  <label for="donation-website">Website</label>
+                  <input id="donation-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <button class="btn warning-btn donation-submit" id="donation-submit" type="submit">Somar ao contador</button>
+                <div class="form-status" id="donation-status" aria-live="polite"></div>
+              </form>
+
+              <div class="quick-email-note">Se você deixar seu e-mail, ele será usado somente para atualizações e prestação de contas. Se preferir, é só voltar a esta página para acompanhar.</div>
+            </div>
+
+            <div class="goal-done-card" id="goal-done-card">
+              <div class="big">🎉🐾</div>
+              <h3>Conseguimos!</h3>
+              <p>A meta de <strong>R$ 6.000,00</strong> foi alcançada.</p>
+              <p><strong>Não são necessárias novas contribuições.</strong></p>
+              <p>Esta página continuará sendo atualizada com a recuperação e a prestação de contas.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="container">
+        <span class="eyebrow">Quem é o Tadeu?</span>
+        <h2 class="section-title">Um pequeno especialista em galhos, olhares pidões e alegria.</h2>
+        <p class="section-intro">Estas são algumas fotos dele antes do acidente — para todo mundo conhecer o cachorro que a gente quer ver correndo por aí de novo.</p>
+
+        <div class="gallery">
+          <figure><img src="assets/tadeu-festa-junina.jpeg" alt="Tadeuzinho feliz em cenário de festa junina" /></figure>
+          <figure><img src="assets/tadeu-close.jpeg" alt="Close do rosto do Tadeuzinho" /></figure>
+          <figure class="portrait"><img src="assets/tadeu-sentado.jpeg" alt="Tadeuzinho sentado em casa" /></figure>
+          <figure><img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" /></figure>
+          <figure class="portrait"><img src="assets/tadeu-planta.jpeg" alt="Tadeuzinho entre plantas" /></figure>
+        </div>
+      </div>
+    </section>
+
     <section id="historia">
       <div class="container grid-2">
         <article class="story-card">
@@ -603,22 +795,6 @@
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <span class="eyebrow">Quem é o Tadeu?</span>
-        <h2 class="section-title">Um pequeno especialista em galhos, olhares pidões e alegria.</h2>
-        <p class="section-intro">Estas são algumas fotos dele antes do acidente — para todo mundo conhecer o cachorro que a gente quer ver correndo por aí de novo.</p>
-
-        <div class="gallery">
-          <figure><img src="assets/tadeu-festa-junina.jpeg" alt="Tadeuzinho feliz em cenário de festa junina" /></figure>
-          <figure><img src="assets/tadeu-close.jpeg" alt="Close do rosto do Tadeuzinho" /></figure>
-          <figure class="portrait"><img src="assets/tadeu-sentado.jpeg" alt="Tadeuzinho sentado em casa" /></figure>
-          <figure><img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" /></figure>
-          <figure class="portrait"><img src="assets/tadeu-planta.jpeg" alt="Tadeuzinho entre plantas" /></figure>
-        </div>
-      </div>
-    </section>
-
     <section id="videos">
       <div class="container">
         <span class="eyebrow">Vídeos do Tadeu</span>
@@ -648,107 +824,25 @@
       </div>
     </section>
 
-
     <section id="transparencia" class="transparency-section">
       <div class="container">
         <span class="eyebrow">Transparência</span>
-        <h2 class="section-title">Cada ajuda tem destino — e a prestação de contas fica aqui.</h2>
-        <p class="section-intro">A meta da vaquinha é de <strong>R$ 6.000,00</strong>. Nesta área, vamos atualizar o valor arrecadado e publicar os comprovantes dos principais gastos com internação, cirurgia, exames, medicamentos e recuperação.</p>
+        <h2 class="section-title">Prestação de contas</h2>
+        <p class="section-intro">Aqui vamos publicar os comprovantes e registrar os principais gastos do tratamento do Tadeu, para que quem ajudou possa acompanhar a destinação dos recursos.</p>
 
-        <div class="transparency-shell">
-          <div class="fund-card">
-            <div class="fund-label">Total arrecadado</div>
-            <div class="fund-amount" id="fund-amount">Carregando…</div>
-            <div class="fund-goal">de uma meta de <strong>R$ 6.000,00</strong></div>
-
-            <div class="progress-track" aria-label="Progresso da arrecadação">
-              <div class="progress-fill" id="progress-fill"></div>
+        <div class="proofs-card" style="margin-top:28px">
+          <div class="proofs-head">
+            <div>
+              <h3>Comprovantes e despesas</h3>
+              <p>Internação, cirurgia, exames, medicamentos, curativos e acompanhamento da recuperação.</p>
             </div>
-            <div class="progress-meta">
-              <span id="progress-percent">Atualizando…</span>
-              <span id="progress-remaining"></span>
-            </div>
-
-            <div class="fund-note">
-              <strong>Contador colaborativo:</strong> o total abaixo considera os valores informados pelos próprios doadores após a realização do PIX. Os comprovantes das despesas e as atualizações da recuperação ficam publicados nesta página.
-            </div>
+            <span class="proof-count" id="proof-count">0 comprovantes</span>
           </div>
 
-          <div class="proofs-card">
-            <div class="proofs-head">
-              <div>
-                <h3>Comprovantes e despesas</h3>
-                <p>Documentos publicados para acompanhar a destinação dos recursos.</p>
-              </div>
-              <span class="proof-count" id="proof-count">0 comprovantes</span>
-            </div>
+          <div class="proof-list" id="proof-list"></div>
 
-            <div class="proof-list" id="proof-list"></div>
-
-            <p class="transparency-footnote">Para preservar dados pessoais desnecessários, os comprovantes podem ser publicados com informações sensíveis ocultadas, mantendo visíveis os dados relevantes da despesa.</p>
-          </div>
+          <p class="transparency-footnote">Para preservar dados pessoais desnecessários, os comprovantes podem ser publicados com informações sensíveis ocultadas, mantendo visíveis os dados relevantes da despesa.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="ajudar">
-      <div class="container help-wrap">
-        <div class="help-card">
-          <span class="eyebrow">Como ajudar</span>
-          <h2 class="section-title">Toda ajuda conta.</h2>
-          <p>Faça o PIX pela chave ao lado e, depois, informe o valor que você enviou. O contador da vaquinha será atualizado automaticamente para que todos possam acompanhar quanto já conseguimos arrecadar.</p>
-          <div class="help-list">
-            <div class="help-item"><span>1.</span><div><b>Faça o PIX</b><span>Use a chave informada nesta página.</span></div></div>
-            <div class="help-item"><span>2.</span><div><b>Informe o valor doado</b><span>Depois do pagamento, registre o valor para atualizar o contador.</span></div></div>
-            <div class="help-item"><span>3.</span><div><b>Acompanhe a prestação de contas</b><span>Você pode voltar a este site ou deixar seu e-mail para receber as atualizações.</span></div></div>
-          </div>
-          <button class="btn btn-primary" type="button" onclick="compartilhar()">Compartilhar a história do Tadeu</button>
-        </div>
-
-        <aside class="pix-box">
-          <div class="donation-live-area">
-            <h3 class="pix-title">Contribuição por PIX</h3>
-            <p>Chave PIX do tipo e-mail:</p>
-            <div class="placeholder" id="pix-key">huppesamanda@gmail.com</div>
-            <button class="btn warning-btn" type="button" style="margin-top:14px" onclick="copiarPix()">Copiar chave PIX</button>
-
-            <div class="pix-divider"></div>
-
-            <h3 class="pix-title">Já fez o PIX?</h3>
-            <p>Informe abaixo quanto você doou para atualizar o contador da arrecadação.</p>
-
-            <form class="donation-form" id="donation-form" novalidate>
-              <div class="field">
-                <label for="donation-amount">Valor doado (R$)</label>
-                <input id="donation-amount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="Ex.: 50,00" required />
-              </div>
-
-              <div class="field">
-                <label for="donation-email">E-mail para prestação de contas <span style="font-weight:500;opacity:.7">(opcional)</span></label>
-                <input id="donation-email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" maxlength="254" />
-                <div class="field-help">Se você deixar seu e-mail, ele será usado somente para enviar atualizações e a prestação de contas desta vaquinha. Se preferir não informar, você pode acompanhar tudo por este site.</div>
-              </div>
-
-              <div class="honeypot" aria-hidden="true">
-                <label for="donation-website">Website</label>
-                <input id="donation-website" name="website" type="text" tabindex="-1" autocomplete="off" />
-              </div>
-
-              <button class="btn warning-btn donation-submit" id="donation-submit" type="submit">Confirmar valor que doei</button>
-              <div class="form-status" id="donation-status" aria-live="polite"></div>
-            </form>
-
-            <div class="live-note">O contador é alimentado pelas informações declaradas pelos doadores. O PIX continua sendo realizado diretamente pela chave acima.</div>
-          </div>
-
-          <div class="goal-done-card" id="goal-done-card">
-            <div class="big">🎉🐾</div>
-            <h3>Conseguimos!</h3>
-            <p>A meta de <strong>R$ 6.000,00</strong> foi alcançada.</p>
-            <p><strong>Não são necessárias novas contribuições.</strong></p>
-            <p>Obrigada a cada pessoa que ajudou o Tadeuzinho. A partir de agora, esta página continuará sendo usada para publicar as atualizações e a prestação de contas.</p>
-          </div>
-        </aside>
       </div>
     </section>
 
