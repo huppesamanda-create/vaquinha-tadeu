@@ -1,0 +1,20 @@
+# Pacote reparado — Vaquinha do Tadeuzinho
+
+Este pacote é uma versão completa e coerente do projeto.
+
+## Para restaurar no GitHub
+Substitua os arquivos do repositório pelos arquivos e pastas deste pacote, preservando a estrutura.
+
+Não faça upload do ZIP como um único arquivo no repositório: descompacte-o primeiro.
+
+Arquivos principais:
+- index.html
+- server.js
+- package.json
+- pasta assets/
+
+As variáveis já existentes no Railway devem ser mantidas:
+- DATABASE_URL
+- GOAL_AMOUNT_CENTS
+- ADMIN_USER
+- ADMIN_PASSWORD
