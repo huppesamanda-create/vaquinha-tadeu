@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ajude o Tadeuzinho a custear internação, cirurgia, exames e medicamentos após um grave acidente na patinha." />
+  <title>Ajude o Tadeuzinho 💛</title>
+  <style>
+    :root{
+      --ink:#26231f;
+      --muted:#6f675d;
+      --cream:#fffaf1;
+      --paper:#fffefb;
+      --yellow:#f4b942;
+      --yellow-2:#ffd875;
+      --green:#557b63;
+      --green-soft:#e9f0ea;
+      --brown:#6f4a36;
+      --line:#eadfce;
+      --shadow:0 18px 60px rgba(78,58,37,.14);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,216,117,.28), transparent 28rem),
+        linear-gradient(180deg,#fffdf8 0%,#fffaf1 100%);
+      font-family: ui-rounded, "Nunito", "Trebuchet MS", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.65;
+    }
+    img,video{display:block;max-width:100%}
+    a{color:inherit}
+    .container{width:min(1120px, calc(100% - 36px));margin-inline:auto}
+    .eyebrow{
+      display:inline-flex;gap:.5rem;align-items:center;
+      padding:.45rem .8rem;border-radius:999px;
+      background:rgba(255,255,255,.85);border:1px solid var(--line);
+      font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    }
+
+    .hero{padding:30px 0 58px}
+    .hero-card{
+      position:relative;overflow:hidden;
+      min-height:690px;border-radius:36px;
+      background:#201c18;box-shadow:var(--shadow);
+    }
+    .hero-card::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg,rgba(20,16,13,.86) 0%,rgba(20,16,13,.64) 38%,rgba(20,16,13,.10) 67%,rgba(20,16,13,.20) 100%);
+    }
+    .hero-media{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;
+    }
+    .hero-copy{
+      position:relative;z-index:2;color:#fff;max-width:650px;padding:74px 58px;
+    }
+    .hero h1{
+      font-size:clamp(3rem,7vw,6.4rem);line-height:.93;margin:.9rem 0 1rem;
+      letter-spacing:-.055em;
+    }
+    .hero .lead{
+      font-size:clamp(1.1rem,2vw,1.35rem);max-width:580px;color:rgba(255,255,255,.9);
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+      min-height:52px;padding:0 22px;border-radius:999px;text-decoration:none;font-weight:900;
+      transition:.2s ease;cursor:pointer;border:0;font:inherit;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--yellow);color:#2c2116;box-shadow:0 10px 30px rgba(244,185,66,.28)}
+    .btn-light{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+    .mini-note{margin-top:20px;font-size:.9rem;color:rgba(255,255,255,.76)}
+
+    section{padding:76px 0}
+    .section-title{
+      font-size:clamp(2rem,4vw,3.35rem);line-height:1.08;letter-spacing:-.035em;margin:.6rem 0 18px;
+    }
+    .section-intro{font-size:1.1rem;color:var(--muted);max-width:760px}
+    .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+    .story-card,.help-card,.status-card,.notice-card{
+      background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    }
+    .story-card{padding:34px}
+    .story-card p{font-size:1.07rem;text-align:justify;margin:0 0 1.05rem}
+    .quote{
+      margin:22px 0;padding:22px;border-radius:22px;background:var(--green-soft);
+      font-size:1.24rem;font-weight:900;color:#31523d;
+    }
+    .side-stack{display:grid;gap:18px}
+    .photo-card{overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:white}
+    .photo-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+    .caption{padding:14px 18px;color:var(--muted);font-size:.92rem}
+
+    .status-band{background:#f0f5ef}
+    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .status-card{padding:26px;box-shadow:none;background:#fff}
+    .status-card .icon{font-size:2rem}
+    .status-card h3{margin:.4rem 0 .3rem;font-size:1.15rem}
+    .status-card p{margin:0;color:var(--muted)}
+
+    .medical-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .xray{overflow:hidden;border-radius:22px;background:#121212;border:1px solid #292929}
+    .xray img{width:100%;height:280px;object-fit:cover}
+    .xray:nth-child(1) img{object-position:center 42%}
+    .xray:nth-child(2) img{object-position:center 50%}
+    .xray:nth-child(3) img{object-position:center 50%}
+    .notice-card{margin-top:18px;padding:18px 20px;box-shadow:none;background:#fff9e9;color:#6a5626}
+
+    .gallery{display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-auto-rows:270px;gap:14px;margin-top:28px}
+    .gallery figure{margin:0;overflow:hidden;border-radius:22px;background:#ddd;position:relative}
+    .gallery figure:first-child{grid-row:span 2}
+    .gallery img{width:100%;height:100%;object-fit:cover}
+    .gallery .contain img{object-fit:contain;background:#efeae1}
+
+    .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .video-card{background:#151515;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .video-card video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+    .video-card .vlabel{padding:12px 15px;color:#eee;font-size:.9rem}
+
+    .sensitive-card{
+      margin-top:22px;
+      background:#191715;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      color:#fff;
+    }
+    .sensitive-stage{
+      position:relative;
+      min-height:420px;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(rgba(22,19,17,.86), rgba(22,19,17,.93)),
+        url("assets/tadeu-internado.jpeg") center/cover no-repeat;
+      padding:28px;
+    }
+    .sensitive-warning{
+      max-width:620px;
+      text-align:center;
+      padding:28px;
+      border-radius:22px;
+      background:rgba(0,0,0,.46);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);
+    }
+    .sensitive-warning .warning-icon{font-size:2.4rem;margin-bottom:8px}
+    .sensitive-warning h3{margin:.15rem 0 .7rem;font-size:1.55rem}
+    .sensitive-warning p{margin:0 0 20px;color:rgba(255,255,255,.82)}
+    .warning-btn{
+      background:#fff;color:#211b17;
+    }
+    .sensitive-video-wrap{display:none;background:#000}
+    .sensitive-video-wrap.active{display:block}
+    .sensitive-video-wrap video{width:100%;max-height:76vh;background:#000}
+    .sensitive-caption{padding:13px 17px;color:#d8d2cc;font-size:.9rem;background:#191715}
+
+    .help-wrap{
+      display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:stretch;
+    }
+    .help-card{padding:36px}
+    .help-card h2{margin-top:0}
+    .help-list{display:grid;gap:12px;margin:24px 0}
+    .help-item{display:flex;gap:12px;align-items:flex-start}
+    .help-item b{display:block}
+    .pix-box{
+      background:#2f5f48;color:#fff;border-radius:var(--radius);padding:36px;position:relative;overflow:hidden;
+    }
+    .pix-box::after{
+      content:"🐾";position:absolute;right:12px;bottom:-18px;font-size:8rem;opacity:.09;transform:rotate(-14deg)
+    }
+    .pix-box h3{font-size:1.7rem;margin-top:0}
+    .placeholder{
+      border:1px dashed rgba(255,255,255,.45);padding:16px;border-radius:16px;background:rgba(255,255,255,.08);
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word
+    }
+
+    .ending{text-align:center;padding-bottom:100px}
+    .ending .paw{font-size:3rem}
+    .ending h2{max-width:850px;margin:8px auto 12px}
+    .ending p{max-width:720px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+
+    .sticky-donate{
+      position:fixed;right:18px;bottom:18px;z-index:20;
+      box-shadow:0 12px 35px rgba(0,0,0,.2)
+    }
+
+    footer{padding:28px 0 38px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    @media (max-width: 860px){
+      .hero{padding-top:18px}
+      .hero-card{min-height:720px}
+      .hero-card::after{background:linear-gradient(180deg,rgba(20,16,13,.32) 0%,rgba(20,16,13,.18) 38%,rgba(20,16,13,.88) 72%,rgba(20,16,13,.96) 100%)}
+      .hero-media{object-position:58% center}
+      .hero-copy{position:absolute;bottom:0;padding:34px 26px}
+      .grid-2,.help-wrap{grid-template-columns:1fr}
+      .status-grid,.medical-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
+      .gallery figure:first-child{grid-row:span 1;grid-column:span 2}
+      .videos{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .container{width:min(100% - 22px,1120px)}
+      section{padding:58px 0}
+      .hero-card{border-radius:26px;min-height:690px}
+      .hero h1{font-size:3.4rem}
+      .hero-actions{display:grid}
+      .btn{width:100%}
+      .story-card,.help-card,.pix-box{padding:24px;border-radius:22px}
+      .story-card p{text-align:left}
+      .gallery{grid-template-columns:1fr;grid-auto-rows:auto}
+      .gallery figure:first-child{grid-column:auto}
+      .gallery img{aspect-ratio:4/3;height:auto}
+      .gallery .portrait img{aspect-ratio:3/4}
+      .videos{grid-template-columns:1fr}
+      .video-card video{aspect-ratio:9/14}
+      .sticky-donate{left:11px;right:11px;bottom:11px}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <img class="hero-media" src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho deitado na grama perto de um galho" />
+        <div class="hero-copy">
+          <span class="eyebrow">🐾 Uma vaquinha pelo Tadeu</span>
+          <h1>Ajude o Tadeuzinho a voltar para casa.</h1>
+          <p class="lead">Depois de um acidente grave na patinha, ele segue internado e precisa de cirurgia, exames, medicamentos e cuidados para se recuperar.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#ajudar">💛 Quero ajudar o Tadeu</a>
+            <button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar esta história</button>
+          </div>
+          <div class="mini-note">Cada contribuição e cada compartilhamento fazem diferença.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="historia">
+      <div class="container grid-2">
+        <article class="story-card">
+          <span class="eyebrow">A história do Tadeu</span>
+          <h2 class="section-title">Eu sou o Tadeuzinho.</h2>
+          <p><strong>Eu adoro galhos!</strong> Não importa se são pequenos, grandes ou até maiores do que eu deveria tentar carregar: se encontro um pelo caminho, já quero pegar e exibir ele para todo mundo, com muito orgulho.</p>
+          <p>Mas esses dias aconteceu uma coisa muito ruim comigo, vou contar para vocês: eu fui colocar minha patinha no espacinho de uma grade, porque eu sou muito curioso. Só que, do outro lado, tinham dois cachorros bem maiores do que eu e eles pegaram minha patinha e machucaram ela muito.</p>
+          <p>Eu não sei explicar direito o que aconteceu depois, só sei que tinha muito sangue, todo mundo ficou desesperado e eu estava com muita dor.</p>
+          <p>Minha família me pegou e correu comigo para uma clínica veterinária em Sobradinho. Eu perdi tanto sangue que eles ficaram com muito medo de eu não aguentar.</p>
+
+          <div class="quote">Mas eu aguentei! 💛</div>
+
+          <p>Ainda estou internado, longe de casa, sendo cuidado pelos veterinários. Minha patinha ficou machucada demais e agora estou esperando uma cirurgia. Eles vão precisar amputar alguns dos meus dedinhos para que eu consiga ficar bem.</p>
+          <p>Eu não sei muito bem o que isso significa, só sei que todo mundo fala comigo, faz carinho em mim e diz que eu ainda vou correr e brincar de novo.</p>
+          <p>No mesmo dia em que tudo aconteceu, minha família chamou um serralheiro e mandou fechar de vez o espacinho da grade. Assim, nenhum outro bichinho vai conseguir colocar a patinha ali e passar pelo que eu passei.</p>
+          <p>Agora eu só quero ficar bom e poder voltar para casa, mas a minha internação, a cirurgia, os exames e os medicamentos estão ficando caros e, por isso, minha família resolveu criar esta vaquinha. Eles estão fazendo tudo o que podem para que eu receba o tratamento de que preciso e consiga voltar para casa bem.</p>
+          <p>Se você puder ajudar, mesmo que seja com um pouquinho, já vai fazer parte da minha recuperação. E, se não puder contribuir agora, compartilhar a minha história também ajuda muito.</p>
+          <p>Eu estou tentando ser muito corajoso e estou contando os dias para voltar para casa, porque ainda tem um monte de galhos de árvore por aí esperando para eu carregar.</p>
+          <p><strong>Obrigada, pessoal! 🐾</strong></p>
+        </article>
+
+        <div class="side-stack">
+          <figure class="photo-card">
+            <img src="assets/tadeu-planta.jpeg" alt="Tadeuzinho antes do acidente, entre plantas" />
+            <figcaption class="caption">Antes do acidente: curioso, carinhoso e sempre pronto para explorar tudo.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/tadeu-internado.jpeg" alt="Tadeuzinho internado usando colar elizabetano" />
+            <figcaption class="caption">Agora: internado, recebendo cuidados e esperando a próxima etapa do tratamento.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-band">
+      <div class="container">
+        <span class="eyebrow">Onde estamos agora</span>
+        <h2 class="section-title">O Tadeu está lutando — e sendo muito corajoso.</h2>
+        <p class="section-intro">O tratamento é emergencial e envolve várias etapas. A família está acompanhando tudo de perto e concentrada em dar a ele a melhor chance de recuperação possível.</p>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="icon">🏥</div>
+            <h3>Internação</h3>
+            <p>Ele permanece sob cuidados veterinários, longe de casa, para estabilização e acompanhamento.</p>
+          </div>
+          <div class="status-card">
+            <div class="icon">🩺</div>
+            <h3>Cirurgia</h3>
+            <p>A patinha sofreu lesões graves e será necessária intervenção cirúrgica, incluindo amputação de alguns dedos.</p>
+          </div>
+          <div class="status-card">
+            <div class="icon">💊</div>
+            <h3>Recuperação</h3>
+            <p>Depois da cirurgia ainda virão medicamentos, curativos, retornos, exames e o período de adaptação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="exames">
+      <div class="container">
+        <span class="eyebrow">Exames</span>
+        <h2 class="section-title">As radiografias mostram a gravidade do trauma.</h2>
+        <p class="section-intro">Incluímos os exames para dar transparência à situação e mostrar por que o Tadeu precisa de tratamento especializado.</p>
+        <div class="medical-grid">
+          <figure class="xray"><img src="assets/raio-x-lateral.jpeg" alt="Radiografia lateral da pata do Tadeuzinho" /></figure>
+          <figure class="xray"><img src="assets/raio-x-frontal.jpeg" alt="Radiografia frontal do membro do Tadeuzinho" /></figure>
+          <figure class="xray"><img src="assets/raio-x-pata.jpeg" alt="Radiografia da pata do Tadeuzinho" /></figure>
+        </div>
+        <div class="notice-card"><strong>Observação:</strong> esta página apenas registra a situação do Tadeu e não substitui a avaliação ou o laudo da equipe veterinária.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="eyebrow">Quem é o Tadeu?</span>
+        <h2 class="section-title">Um pequeno especialista em galhos, olhares pidões e alegria.</h2>
+        <p class="section-intro">Estas são algumas fotos dele antes do acidente — para todo mundo conhecer o cachorro que a gente quer ver correndo por aí de novo.</p>
+
+        <div class="gallery">
+          <figure><img src="assets/tadeu-festa-junina.jpeg" alt="Tadeuzinho feliz em cenário de festa junina" /></figure>
+          <figure><img src="assets/tadeu-close.jpeg" alt="Close do rosto do Tadeuzinho" /></figure>
+          <figure class="portrait"><img src="assets/tadeu-sentado.jpeg" alt="Tadeuzinho sentado em casa" /></figure>
+          <figure><img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" /></figure>
+          <figure class="portrait"><img src="assets/tadeu-planta.jpeg" alt="Tadeuzinho entre plantas" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="container">
+        <span class="eyebrow">Vídeos do Tadeu</span>
+        <h2 class="section-title">Para quem quiser conhecer um pouquinho mais dele.</h2>
+        <div class="sensitive-card" id="video-forte">
+          <div class="sensitive-stage" id="sensitive-stage">
+            <div class="sensitive-warning">
+              <div class="warning-icon">⚠️</div>
+              <h3>Aviso de conteúdo sensível</h3>
+              <p>O vídeo a seguir mostra imagens fortes do ferimento do Tadeu logo após o acidente, incluindo sangue e lesões na pata. Ele pode ser perturbador para algumas pessoas.</p>
+              <button class="btn warning-btn" type="button" onclick="mostrarVideoForte()">Estou ciente e quero assistir</button>
+            </div>
+          </div>
+          <div class="sensitive-video-wrap" id="sensitive-video-wrap">
+            <video id="sensitive-video" controls preload="metadata" playsinline src="assets/video-conteudo-forte.mp4"></video>
+            <div class="sensitive-caption">Conteúdo sensível: registro feito após o acidente.</div>
+          </div>
+        </div>
+
+        <div class="videos">
+          <div class="video-card"><video controls preload="metadata" src="assets/video-1.mp4"></video><div class="vlabel">Um pouquinho do Tadeu 💛</div></div>
+          <div class="video-card"><video controls preload="metadata" src="assets/video-2.mp4"></video><div class="vlabel">Mais um momento dele 🐾</div></div>
+          <div class="video-card"><video controls preload="metadata" src="assets/video-3.mp4"></video><div class="vlabel">Tadeu sendo Tadeu 🌿</div></div>
+          <div class="video-card"><video controls preload="metadata" src="assets/video-4.mp4"></video><div class="vlabel">Nosso pequeno explorador</div></div>
+          <div class="video-card"><video controls preload="metadata" src="assets/video-5.mp4"></video><div class="vlabel">Porque ele ainda tem muita coisa para viver</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ajudar">
+      <div class="container help-wrap">
+        <div class="help-card">
+          <span class="eyebrow">Como ajudar</span>
+          <h2 class="section-title">Toda ajuda conta.</h2>
+          <p>A arrecadação será usada para custear os gastos veterinários decorrentes do acidente: internação, cirurgia, exames, medicamentos, curativos e acompanhamento da recuperação.</p>
+          <div class="help-list">
+            <div class="help-item"><span>💛</span><div><b>Contribua com qualquer valor</b><span>Mesmo uma quantia pequena ajuda a dividir esse peso.</span></div></div>
+            <div class="help-item"><span>↗</span><div><b>Compartilhe com outras pessoas</b><span>Um compartilhamento pode alcançar justamente quem consegue ajudar.</span></div></div>
+            <div class="help-item"><span>🐶</span><div><b>Acompanhe a recuperação</b><span>Esta página pode ser atualizada com notícias do pós-operatório.</span></div></div>
+          </div>
+          <button class="btn btn-primary" type="button" onclick="compartilhar()">Compartilhar pelo celular</button>
+        </div>
+
+        <aside class="pix-box">
+          <h3>Área para inserir a contribuição</h3>
+          <p>No protótipo, deixei este espaço pronto para receber o link oficial da vaquinha, chave PIX ou QR Code.</p>
+          <div class="placeholder">LINK_DA_VAQUINHA_OU_CHAVE_PIX</div>
+          <p style="font-size:.9rem;opacity:.8;margin-bottom:0">Substitua este texto pelos dados oficiais antes de publicar.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ending">
+      <div class="container">
+        <div class="paw">🐾</div>
+        <h2 class="section-title">Ainda tem um monte de galhos por aí esperando pelo Tadeuzinho.</h2>
+        <p>Obrigada por ler até aqui, por ajudar, por compartilhar e por torcer para que ele volte logo para casa.</p>
+      </div>
+    </section>
+  </main>
+
+  <a class="btn btn-primary sticky-donate" href="#ajudar">💛 Ajudar o Tadeu</a>
+
+  <footer>
+    <div class="container">
+      <span>Vaquinha do Tadeuzinho • 2026</span>
+      <span>Página criada para divulgação da recuperação do Tadeu.</span>
+    </div>
+  </footer>
+
+  <script>
+    function mostrarVideoForte(){
+      const stage = document.getElementById('sensitive-stage');
+      const wrap = document.getElementById('sensitive-video-wrap');
+      const video = document.getElementById('sensitive-video');
+      stage.style.display = 'none';
+      wrap.classList.add('active');
+      video.play().catch(()=>{});
+    }
+
+    function compartilhar(){
+      const data = {
+        title: 'Ajude o Tadeuzinho',
+        text: 'O Tadeuzinho sofreu um acidente grave na patinha e precisa de ajuda com internação, cirurgia, exames e medicamentos. 💛🐾',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        navigator.share(data).catch(()=>{});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado! Agora é só compartilhar a história do Tadeu. 💛');
+      }
+    }
+  </script>
+</body>
+</html>
