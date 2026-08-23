@@ -315,111 +315,167 @@
       padding:54px 0 34px;
       background:#fffdf8;
     }
-    .story-intro-grid{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:24px;
-      align-items:start;
+    .story-full-card{
       margin-top:24px;
-    }
-    .story-copy-card{
       background:#fff;
       border:1px solid var(--line);
       border-radius:26px;
-      padding:28px;
+      padding:30px 34px;
       box-shadow:0 14px 40px rgba(78,58,37,.08);
     }
-    .story-copy-card p{
+    .story-full-card p{
       margin:0 0 1rem;
-      font-size:1.02rem;
+      font-size:1.03rem;
       text-align:justify;
     }
-    .story-copy-card p:last-child{margin-bottom:0}
+    .story-full-card p:last-child{margin-bottom:0}
     .story-highlight{
-      margin:18px 0;
-      padding:16px 18px;
-      border-radius:18px;
+      display:inline-block;
+      margin:4px 0 18px;
+      padding:14px 18px;
+      border-radius:16px;
       background:var(--green-soft);
       color:#31523d;
       font-weight:900;
       font-size:1.08rem;
     }
-    .before-block h3,
-    .recovery-block h3{
+
+    .story-sliders{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+      align-items:start;
+    }
+    .slider-card{
+      min-width:0;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 12px 34px rgba(78,58,37,.07);
+    }
+    .slider-card h3{
       margin:0 0 14px;
-      font-size:clamp(1.6rem,2.5vw,2.2rem);
+      font-size:clamp(1.45rem,2vw,1.9rem);
       letter-spacing:-.025em;
     }
-    .before-gallery{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      grid-template-rows:210px 210px;
-      gap:12px;
-    }
-    .before-gallery figure,
-    .recovery-gallery figure{
-      margin:0;
-      overflow:hidden;
-      border-radius:20px;
-      background:#eee;
+    .media-slider{
       position:relative;
+      overflow:hidden;
+      border-radius:18px;
+      background:#eee;
     }
-    .before-gallery figure:first-child{
-      grid-row:1 / span 2;
+    .slider-track{
+      display:flex;
+      transition:transform .35s ease;
+      will-change:transform;
     }
-    .before-gallery img,
-    .recovery-gallery img{
+    .slider-slide{
+      flex:0 0 100%;
+      min-width:0;
+      position:relative;
+      aspect-ratio:4 / 3;
+      background:#eee;
+    }
+    .slider-slide img,
+    .slider-slide video{
       width:100%;
       height:100%;
       object-fit:cover;
+      display:block;
     }
-    .story-rest{
-      margin-top:26px;
-      columns:2;
-      column-gap:34px;
-      column-rule:1px solid var(--line);
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:26px;
-      padding:28px 30px;
-    }
-    .story-rest p{
-      break-inside:avoid;
-      margin:0 0 1rem;
-      text-align:justify;
-      font-size:1.02rem;
-    }
-    .recovery-block{
-      margin-top:30px;
-    }
-    .recovery-intro{
-      color:var(--muted);
-      margin:0 0 16px;
-      max-width:760px;
-    }
-    .recovery-gallery{
-      display:grid;
-      grid-template-columns:1.15fr .85fr .85fr;
-      grid-auto-rows:240px;
-      gap:12px;
-    }
-    .recovery-gallery figure:first-child{
-      grid-row:1 / span 2;
-    }
-    .recovery-gallery .xray-img{
+    .slider-slide.contain{
       background:#111;
     }
-    .recovery-gallery .xray-img img{
-      object-fit:cover;
+    .slider-slide.contain img{
+      object-fit:contain;
+      background:#111;
     }
-    .recovery-note{
-      margin-top:14px;
-      padding:14px 16px;
+    .slide-caption{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      padding:9px 12px;
+      border-radius:14px;
+      background:rgba(20,18,16,.72);
+      color:#fff;
+      font-size:.82rem;
+      line-height:1.35;
+      backdrop-filter:blur(7px);
+    }
+    .slider-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:12px;
+    }
+    .slider-dots{
+      display:flex;
+      gap:6px;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+    }
+    .slider-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      border:0;
+      padding:0;
+      background:#d7cabc;
+      cursor:pointer;
+    }
+    .slider-dot.active{
+      width:22px;
+      background:#6f4a36;
+    }
+    .slider-arrow{
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fffaf4;
+      color:#3f352d;
+      font-size:1.15rem;
+      font-weight:900;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+    }
+    .slider-arrow:hover{background:#f5ede2}
+    .slider-note{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:.87rem;
+      line-height:1.45;
+    }
+    .slider-slide video{background:#000}
+    .slider-slide.sensitive-slide{
+      background:#171513;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .sensitive-inline{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#211d19,#141210);
       border-radius:16px;
-      background:#fff9e9;
-      color:#6a5626;
-      font-size:.9rem;
+      color:#fff;
+      text-align:center;
+      padding:24px;
     }
+    .sensitive-inline .warning-icon{font-size:2rem;margin-bottom:10px}
+    .sensitive-inline h4{margin:.2rem 0 .55rem;font-size:1.35rem}
+    .sensitive-inline p{margin:0 0 16px;color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.45}
+    .sensitive-inline .warning-btn{min-height:42px;padding:0 16px}
 
     .transparency-section{
       background:
@@ -698,10 +754,7 @@
       .quick-head{display:block}
       .quick-head p{margin-top:10px}
       .quick-grid{grid-template-columns:1fr}
-      .story-intro-grid{grid-template-columns:1fr}
-      .story-rest{columns:1;column-rule:none}
-      .recovery-gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
-      .recovery-gallery figure:first-child{grid-column:1 / -1;grid-row:auto}
+      .story-sliders{grid-template-columns:1fr}
       .donation-form.compact{grid-template-columns:1fr 1fr}
       .donation-form.compact .donation-submit{grid-column:1 / -1;width:100%}
       .transparency-shell{grid-template-columns:1fr}
@@ -720,6 +773,9 @@
       .hero-photo-label{right:10px;bottom:10px;font-size:.74rem}
       .quick-fundraising{padding:26px 0 42px}
       .quick-grid .fund-card,.quick-grid .pix-box{padding:21px}
+      .story-full-card{padding:22px}
+      .story-full-card p{text-align:left}
+      .slider-card{padding:16px}
       .pix-quick-row{grid-template-columns:1fr}
       .pix-copy-small{width:100%}
       .donation-form.compact{grid-template-columns:1fr}
@@ -735,14 +791,6 @@
       .gallery figure:first-child{grid-column:auto}
       .gallery img{aspect-ratio:4/3;height:auto}
       .gallery .portrait img{aspect-ratio:3/4}
-      .story-copy-card,.story-rest{padding:22px}
-      .story-copy-card p,.story-rest p{text-align:left}
-      .before-gallery{grid-template-columns:1fr;grid-template-rows:auto}
-      .before-gallery figure:first-child{grid-row:auto}
-      .before-gallery img{height:auto;aspect-ratio:4/3}
-      .recovery-gallery{grid-template-columns:1fr;grid-auto-rows:auto}
-      .recovery-gallery figure:first-child{grid-column:auto}
-      .recovery-gallery img{height:auto;aspect-ratio:4/3}
       .videos{grid-template-columns:1fr}
       .video-card video{aspect-ratio:9/14}
       .sticky-donate{left:11px;right:11px;bottom:11px}
@@ -851,30 +899,17 @@
         <span class="eyebrow">A história do Tadeu</span>
         <h2 class="section-title">Eu sou o Tadeuzinho.</h2>
 
-        <div class="story-intro-grid">
-          <div class="story-copy-card">
-            <p><strong>Eu adoro galhos!</strong> Não importa se são pequenos, grandes ou até maiores do que eu deveria tentar carregar: se encontro um pelo caminho, já quero pegar e exibir ele para todo mundo, com muito orgulho.</p>
+        <div class="story-full-card">
+          <p><strong>Eu adoro galhos!</strong> Não importa se são pequenos, grandes ou até maiores do que eu deveria tentar carregar: se encontro um pelo caminho, já quero pegar e exibir ele para todo mundo, com muito orgulho.</p>
 
-            <p>Mas esses dias aconteceu uma coisa muito ruim comigo, vou contar para vocês: eu fui colocar minha patinha no espacinho de uma grade, porque eu sou muito curioso. Só que, do outro lado, tinham dois cachorros bem maiores do que eu e eles pegaram minha patinha e machucaram ela muito.</p>
+          <p>Mas esses dias aconteceu uma coisa muito ruim comigo, vou contar para vocês: eu fui colocar minha patinha no espacinho de uma grade, porque eu sou muito curioso. Só que, do outro lado, tinham dois cachorros bem maiores do que eu e eles pegaram minha patinha e machucaram ela muito.</p>
 
-            <p>Eu não sei explicar direito o que aconteceu depois, só sei que tinha muito sangue, todo mundo ficou desesperado e eu estava com muita dor.</p>
+          <p>Eu não sei explicar direito o que aconteceu depois, só sei que tinha muito sangue, todo mundo ficou desesperado e eu estava com muita dor.</p>
 
-            <p>Minha família me pegou e correu comigo para uma clínica veterinária em Sobradinho. Eu perdi tanto sangue que eles ficaram com muito medo de eu não aguentar.</p>
+          <p>Minha família me pegou e correu comigo para uma clínica veterinária em Sobradinho. Eu perdi tanto sangue que eles ficaram com muito medo de eu não aguentar.</p>
 
-            <div class="story-highlight">Mas eu aguentei! 💛</div>
-          </div>
+          <div class="story-highlight">Mas eu aguentei! 💛</div>
 
-          <div class="before-block">
-            <h3>Olha como eu era antes do acidente</h3>
-            <div class="before-gallery">
-              <figure><img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" /></figure>
-              <figure><img src="assets/tadeu-festa-junina.jpeg" alt="Tadeuzinho feliz em cenário de festa junina" /></figure>
-              <figure><img src="assets/tadeu-planta.jpeg" alt="Tadeuzinho entre plantas" /></figure>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-rest">
           <p>Ainda estou internado, longe de casa, sendo cuidado pelos veterinários. Minha patinha ficou machucada demais e agora estou esperando uma cirurgia. Eles vão precisar amputar alguns dos meus dedinhos para que eu consiga ficar bem.</p>
 
           <p>Eu não sei muito bem o que isso significa, só sei que todo mundo fala comigo, faz carinho em mim e diz que eu ainda vou correr e brincar de novo.</p>
@@ -890,18 +925,76 @@
           <p><strong>Obrigada, pessoal! 🐾</strong></p>
         </div>
 
-        <div class="recovery-block">
-          <h3>O acidente e a minha recuperação</h3>
-          <p class="recovery-intro">Essas imagens mostram um pouco do que aconteceu e do tratamento que eu estou recebendo agora.</p>
+        <div class="story-sliders">
+          <div class="slider-card">
+            <h3>Olha como eu era antes do acidente</h3>
 
-          <div class="recovery-gallery">
-            <figure><img src="assets/tadeu-internado.jpeg" alt="Tadeuzinho internado usando colar elizabetano" /></figure>
-            <figure class="xray-img"><img src="assets/raio-x-lateral.jpeg" alt="Radiografia lateral da pata do Tadeuzinho" /></figure>
-            <figure class="xray-img"><img src="assets/raio-x-frontal.jpeg" alt="Radiografia frontal do membro do Tadeuzinho" /></figure>
-            <figure class="xray-img"><img src="assets/raio-x-pata.jpeg" alt="Radiografia da pata do Tadeuzinho" /></figure>
+            <div class="media-slider" data-slider>
+              <div class="slider-track">
+                <div class="slider-slide"><img src="assets/antes-1.jpg" alt="Tadeuzinho olhando para a câmera, antes do acidente" /></div>
+                <div class="slider-slide"><img src="assets/antes-2.jpg" alt="Tadeuzinho de perfil, antes do acidente" /></div>
+                <div class="slider-slide"><img src="assets/antes-3.jpg" alt="Tadeuzinho feliz com a língua de fora, antes do acidente" /></div>
+                <div class="slider-slide"><img src="assets/antes-4.jpg" alt="Tadeuzinho entre plantas, antes do acidente" /></div>
+                <div class="slider-slide"><img src="assets/antes-5.jpg" alt="Tadeuzinho em cenário de festa junina, antes do acidente" /></div>
+              </div>
+
+              <div class="slider-nav">
+                <button class="slider-arrow" type="button" data-prev aria-label="Foto anterior">‹</button>
+                <div class="slider-dots" data-dots></div>
+                <button class="slider-arrow" type="button" data-next aria-label="Próxima foto">›</button>
+              </div>
+            </div>
           </div>
 
-          <div class="recovery-note"><strong>Observação:</strong> as radiografias são apresentadas apenas para transparência sobre a gravidade do trauma e não substituem o laudo ou a avaliação da equipe veterinária.</div>
+          <div class="slider-card">
+            <h3>O acidente e a minha recuperação</h3>
+
+            <div class="media-slider" data-slider>
+              <div class="slider-track">
+                <div class="slider-slide">
+                  <img src="assets/depois-1-internado.jpg" alt="Tadeuzinho internado usando colar elizabetano" />
+                  <div class="slide-caption">Internado e sendo cuidado pela equipe veterinária.</div>
+                </div>
+                <div class="slider-slide contain">
+                  <img src="assets/depois-2-raiox1.jpg" alt="Radiografia lateral da pata do Tadeuzinho" />
+                </div>
+                <div class="slider-slide contain">
+                  <img src="assets/depois-3-raiox2.jpg" alt="Radiografia frontal da pata do Tadeuzinho" />
+                </div>
+                <div class="slider-slide contain">
+                  <img src="assets/depois-4-raiox3.jpg" alt="Radiografia lateral do membro do Tadeuzinho" />
+                </div>
+                <div class="slider-slide">
+                  <video controls preload="metadata" playsinline src="assets/depois-video-1.mp4"></video>
+                  <div class="slide-caption">Vídeo da recuperação do Tadeu.</div>
+                </div>
+                <div class="slider-slide">
+                  <video controls preload="metadata" playsinline src="assets/depois-video-2.mp4"></video>
+                </div>
+                <div class="slider-slide">
+                  <video controls preload="metadata" playsinline src="assets/depois-video-3.mp4"></video>
+                </div>
+                <div class="slider-slide sensitive-slide">
+                  <div class="sensitive-inline" data-sensitive-placeholder>
+                    <div>
+                      <div class="warning-icon">⚠️</div>
+                      <h4>Aviso de conteúdo sensível</h4>
+                      <p>Este vídeo mostra imagens fortes do ferimento do Tadeu logo após o acidente.</p>
+                      <button class="btn warning-btn" type="button" onclick="revelarMidiaSensivel(this, 'assets/depois-video-sensivel.mp4')">Estou ciente e quero assistir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slider-nav">
+                <button class="slider-arrow" type="button" data-prev aria-label="Mídia anterior">‹</button>
+                <div class="slider-dots" data-dots></div>
+                <button class="slider-arrow" type="button" data-next aria-label="Próxima mídia">›</button>
+              </div>
+            </div>
+
+            <p class="slider-note">As radiografias e os vídeos são apresentados por transparência sobre a gravidade do trauma e sobre o tratamento do Tadeu.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -927,35 +1020,6 @@
             <h3>Recuperação</h3>
             <p>Depois da cirurgia ainda virão medicamentos, curativos, retornos, exames e o período de adaptação.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="videos">
-      <div class="container">
-        <span class="eyebrow">Vídeos do Tadeu</span>
-        <h2 class="section-title">Para quem quiser conhecer um pouquinho mais dele.</h2>
-        <div class="sensitive-card" id="video-forte">
-          <div class="sensitive-stage" id="sensitive-stage">
-            <div class="sensitive-warning">
-              <div class="warning-icon">⚠️</div>
-              <h3>Aviso de conteúdo sensível</h3>
-              <p>O vídeo a seguir mostra imagens fortes do ferimento do Tadeu logo após o acidente, incluindo sangue e lesões na pata. Ele pode ser perturbador para algumas pessoas.</p>
-              <button class="btn warning-btn" type="button" onclick="mostrarVideoForte()">Estou ciente e quero assistir</button>
-            </div>
-          </div>
-          <div class="sensitive-video-wrap" id="sensitive-video-wrap">
-            <video id="sensitive-video" controls preload="metadata" playsinline src="assets/video-conteudo-forte.mp4"></video>
-            <div class="sensitive-caption">Conteúdo sensível: registro feito após o acidente.</div>
-          </div>
-        </div>
-
-        <div class="videos">
-          <div class="video-card"><video controls preload="metadata" src="assets/video-1.mp4"></video><div class="vlabel">Um pouquinho do Tadeu 💛</div></div>
-          <div class="video-card"><video controls preload="metadata" src="assets/video-2.mp4"></video><div class="vlabel">Mais um momento dele 🐾</div></div>
-          <div class="video-card"><video controls preload="metadata" src="assets/video-3.mp4"></video><div class="vlabel">Tadeu sendo Tadeu 🌿</div></div>
-          <div class="video-card"><video controls preload="metadata" src="assets/video-4.mp4"></video><div class="vlabel">Nosso pequeno explorador</div></div>
-          <div class="video-card"><video controls preload="metadata" src="assets/video-5.mp4"></video><div class="vlabel">Porque ele ainda tem muita coisa para viver</div></div>
         </div>
       </div>
     </section>
@@ -1001,13 +1065,15 @@
   </footer>
 
   <script>
-    function mostrarVideoForte(){
-      const stage = document.getElementById('sensitive-stage');
-      const wrap = document.getElementById('sensitive-video-wrap');
-      const video = document.getElementById('sensitive-video');
-      stage.style.display = 'none';
-      wrap.classList.add('active');
-      video.play().catch(()=>{});
+    function revelarMidiaSensivel(button, src){
+      const container = button.closest('[data-sensitive-placeholder]');
+      if (!container) return;
+      container.innerHTML = `
+        <video controls autoplay preload="metadata" playsinline src="${src}"></video>
+        <div class="slide-caption">Conteúdo sensível: registro feito após o acidente.</div>
+      `;
+      const video = container.querySelector('video');
+      video?.play?.().catch(()=>{});
     }
 
     // ============================================================
@@ -1189,8 +1255,53 @@
       }
     }
 
+    function iniciarSliders(){
+      document.querySelectorAll('[data-slider]').forEach(slider => {
+        const track = slider.querySelector('.slider-track');
+        const slides = Array.from(slider.querySelectorAll('.slider-slide'));
+        const prev = slider.querySelector('[data-prev]');
+        const next = slider.querySelector('[data-next]');
+        const dotsWrap = slider.querySelector('[data-dots]');
+
+        if (!track || slides.length === 0) return;
+
+        let index = 0;
+
+        const dots = slides.map((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'slider-dot';
+          dot.setAttribute('aria-label', `Ir para mídia ${i + 1}`);
+          dot.addEventListener('click', () => {
+            index = i;
+            atualizar();
+          });
+          dotsWrap?.appendChild(dot);
+          return dot;
+        });
+
+        function atualizar(){
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        }
+
+        prev?.addEventListener('click', () => {
+          index = (index - 1 + slides.length) % slides.length;
+          atualizar();
+        });
+
+        next?.addEventListener('click', () => {
+          index = (index + 1) % slides.length;
+          atualizar();
+        });
+
+        atualizar();
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderComprovantes();
+      iniciarSliders();
       carregarArrecadacao();
       const form = document.getElementById('donation-form');
       if (form) form.addEventListener('submit', registrarDoacao);
