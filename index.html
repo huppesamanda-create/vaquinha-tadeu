@@ -42,28 +42,33 @@
       font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
     }
 
-    .hero{padding:30px 0 58px}
+    .hero{padding:24px 0 58px}
     .hero-card{
-      position:relative;overflow:hidden;
-      min-height:690px;border-radius:36px;
-      background:#201c18;box-shadow:var(--shadow);
-    }
-    .hero-card::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(90deg,rgba(20,16,13,.86) 0%,rgba(20,16,13,.64) 38%,rgba(20,16,13,.10) 67%,rgba(20,16,13,.20) 100%);
-    }
-    .hero-media{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      min-height:650px;
+      overflow:hidden;
+      border-radius:36px;
+      background:#201c18;
+      box-shadow:var(--shadow);
     }
     .hero-copy{
-      position:relative;z-index:2;color:#fff;max-width:650px;padding:74px 58px;
+      color:#fff;
+      padding:70px 56px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
     .hero h1{
-      font-size:clamp(3rem,7vw,6.4rem);line-height:.93;margin:.9rem 0 1rem;
+      font-size:clamp(3rem,6.4vw,6rem);
+      line-height:.94;
+      margin:.9rem 0 1rem;
       letter-spacing:-.055em;
     }
     .hero .lead{
-      font-size:clamp(1.1rem,2vw,1.35rem);max-width:580px;color:rgba(255,255,255,.9);
+      font-size:clamp(1.08rem,1.7vw,1.3rem);
+      max-width:560px;
+      color:rgba(255,255,255,.88);
     }
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
     .btn{
@@ -73,8 +78,40 @@
     }
     .btn:hover{transform:translateY(-2px)}
     .btn-primary{background:var(--yellow);color:#2c2116;box-shadow:0 10px 30px rgba(244,185,66,.28)}
-    .btn-light{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
-    .mini-note{margin-top:20px;font-size:.9rem;color:rgba(255,255,255,.76)}
+    .btn-light{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.30)}
+    .mini-note{margin-top:20px;font-size:.9rem;color:rgba(255,255,255,.72)}
+    .hero-photo{
+      min-height:650px;
+      position:relative;
+      background:#161412;
+    }
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+    }
+    .hero-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(32,28,24,.34),transparent 30%);
+      pointer-events:none;
+    }
+    .hero-photo-label{
+      position:absolute;
+      z-index:2;
+      right:22px;
+      bottom:22px;
+      max-width:250px;
+      background:rgba(255,255,255,.92);
+      color:#2d2823;
+      border-radius:18px;
+      padding:12px 14px;
+      font-size:.9rem;
+      line-height:1.35;
+      box-shadow:0 8px 25px rgba(0,0,0,.18);
+    }
 
     section{padding:76px 0}
     .section-title{
@@ -163,6 +200,243 @@
     .help-wrap{
       display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:stretch;
     }
+
+    .transparency-section{
+      background:
+        linear-gradient(180deg,#fffaf1 0%,#f7f1e7 100%);
+    }
+    .transparency-shell{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:24px;
+      align-items:start;
+    }
+    .fund-card,.proofs-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .fund-card{padding:32px;position:sticky;top:20px}
+    .fund-label{
+      font-size:.82rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:900;
+      color:var(--muted);
+    }
+    .fund-amount{
+      font-size:clamp(2.6rem,5vw,4.6rem);
+      font-weight:1000;
+      letter-spacing:-.055em;
+      line-height:1;
+      margin:10px 0 8px;
+      color:#2f5f48;
+    }
+    .fund-goal{
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+    .progress-track{
+      width:100%;
+      height:18px;
+      border-radius:999px;
+      background:#eee7dc;
+      overflow:hidden;
+      position:relative;
+    }
+    .progress-fill{
+      height:100%;
+      width:0%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--yellow),var(--yellow-2));
+      transition:width .7s ease;
+    }
+    .progress-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:10px;
+      font-size:.92rem;
+      color:var(--muted);
+    }
+    .fund-note{
+      margin-top:24px;
+      padding:16px 18px;
+      border-radius:18px;
+      background:var(--green-soft);
+      color:#31523d;
+      font-size:.94rem;
+    }
+    .proofs-card{padding:30px}
+    .proofs-head{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      margin-bottom:20px;
+    }
+    .proofs-head h3{margin:0;font-size:1.55rem}
+    .proofs-head p{margin:.35rem 0 0;color:var(--muted)}
+    .proof-count{
+      flex:0 0 auto;
+      padding:.45rem .75rem;
+      border-radius:999px;
+      background:#f5efe5;
+      color:#6b5c4d;
+      font-size:.82rem;
+      font-weight:900;
+    }
+    .proof-list{display:grid;gap:14px}
+    .proof-item{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:16px;
+      align-items:center;
+      padding:17px 18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fffdf9;
+    }
+    .proof-item h4{margin:0 0 3px;font-size:1rem}
+    .proof-item p{margin:0;color:var(--muted);font-size:.9rem}
+    .proof-value{
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .proof-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:0 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:900;
+      font-size:.88rem;
+      background:#f1eadf;
+      margin-top:8px;
+    }
+    .empty-proofs{
+      padding:28px 20px;
+      border:1px dashed #d9cdbc;
+      border-radius:18px;
+      text-align:center;
+      color:var(--muted);
+      background:#fffaf4;
+    }
+    .empty-proofs strong{display:block;color:var(--ink);margin-bottom:6px}
+    .transparency-footnote{
+      margin-top:18px;
+      font-size:.86rem;
+      color:var(--muted);
+    }
+
+    .goal-banner{
+      display:none;
+      margin:0 auto 22px;
+      width:min(1120px, calc(100% - 36px));
+      padding:18px 22px;
+      border-radius:20px;
+      background:#e9f0ea;
+      border:1px solid #cddfd1;
+      color:#31523d;
+      font-weight:900;
+      text-align:center;
+    }
+    body.goal-reached .goal-banner{display:block}
+    body.goal-reached .sticky-donate{display:none}
+
+    .donation-form{
+      margin-top:22px;
+      display:grid;
+      gap:14px;
+    }
+    .field{
+      display:grid;
+      gap:7px;
+    }
+    .field label{
+      font-weight:900;
+      font-size:.94rem;
+    }
+    .field input{
+      width:100%;
+      min-height:50px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      padding:0 14px;
+      font:inherit;
+      font-size:16px;
+      outline:none;
+    }
+    .field input::placeholder{color:rgba(255,255,255,.56)}
+    .field input:focus{
+      border-color:rgba(255,255,255,.72);
+      box-shadow:0 0 0 3px rgba(255,255,255,.10);
+    }
+    .field-help{
+      color:rgba(255,255,255,.70);
+      font-size:.82rem;
+      line-height:1.45;
+    }
+    .donation-submit{
+      width:100%;
+      margin-top:2px;
+    }
+    .form-status{
+      min-height:22px;
+      font-size:.9rem;
+      line-height:1.45;
+    }
+    .form-status.success{color:#dff5e5}
+    .form-status.error{color:#ffd6d2}
+    .pix-divider{
+      height:1px;
+      background:rgba(255,255,255,.16);
+      margin:22px 0;
+    }
+    .pix-title{
+      margin:.2rem 0 .5rem;
+      font-size:1.6rem;
+    }
+    .goal-done-card{
+      display:none;
+      border-radius:22px;
+      background:#e9f0ea;
+      color:#31523d;
+      padding:28px;
+      text-align:center;
+    }
+    .goal-done-card .big{font-size:3rem;margin-bottom:4px}
+    .goal-done-card h3{font-size:1.8rem;margin:.2rem 0 .7rem}
+    .goal-done-card p{margin:.4rem 0}
+    body.goal-reached .donation-live-area{display:none}
+    body.goal-reached .goal-done-card{display:block}
+    .live-note{
+      margin-top:12px;
+      font-size:.82rem;
+      color:rgba(255,255,255,.66);
+      line-height:1.45;
+    }
+    .subscribers-note{
+      padding:14px 16px;
+      background:rgba(255,255,255,.08);
+      border-radius:14px;
+      font-size:.86rem;
+      color:rgba(255,255,255,.78);
+    }
+    .honeypot{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;
+      height:1px !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+    }
     .help-card{padding:36px}
     .help-card h2{margin-top:0}
     .help-list{display:grid;gap:12px;margin:24px 0}
@@ -195,11 +469,13 @@
 
     @media (max-width: 860px){
       .hero{padding-top:18px}
-      .hero-card{min-height:720px}
-      .hero-card::after{background:linear-gradient(180deg,rgba(20,16,13,.32) 0%,rgba(20,16,13,.18) 38%,rgba(20,16,13,.88) 72%,rgba(20,16,13,.96) 100%)}
-      .hero-media{object-position:58% center}
-      .hero-copy{position:absolute;bottom:0;padding:34px 26px}
+      .hero-card{grid-template-columns:1fr;min-height:auto}
+      .hero-copy{padding:42px 30px 34px}
+      .hero-photo{min-height:500px;order:-1}
+      .hero-photo::after{background:linear-gradient(180deg,transparent 70%,rgba(32,28,24,.28))}
       .grid-2,.help-wrap{grid-template-columns:1fr}
+      .transparency-shell{grid-template-columns:1fr}
+      .fund-card{position:static}
       .status-grid,.medical-grid{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
       .gallery figure:first-child{grid-row:span 1;grid-column:span 2}
@@ -208,11 +484,16 @@
     @media (max-width: 560px){
       .container{width:min(100% - 22px,1120px)}
       section{padding:58px 0}
-      .hero-card{border-radius:26px;min-height:690px}
-      .hero h1{font-size:3.4rem}
+      .hero-card{border-radius:26px}
+      .hero h1{font-size:3.25rem}
+      .hero-photo{min-height:410px}
+      .hero-photo-label{right:14px;bottom:14px;max-width:220px;font-size:.82rem}
       .hero-actions{display:grid}
       .btn{width:100%}
       .story-card,.help-card,.pix-box{padding:24px;border-radius:22px}
+      .fund-card,.proofs-card{padding:22px;border-radius:22px}
+      .proof-item{grid-template-columns:1fr}
+      .proof-value{justify-self:start}
       .story-card p{text-align:left}
       .gallery{grid-template-columns:1fr;grid-auto-rows:auto}
       .gallery figure:first-child{grid-column:auto}
@@ -225,19 +506,24 @@
   </style>
 </head>
 <body>
+  <div class="goal-banner" id="goal-banner">💛 Conseguimos! A meta do Tadeuzinho foi alcançada e não são necessárias novas contribuições.</div>
   <header class="hero">
     <div class="container">
       <div class="hero-card">
-        <img class="hero-media" src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho deitado na grama perto de um galho" />
         <div class="hero-copy">
           <span class="eyebrow">🐾 Uma vaquinha pelo Tadeu</span>
-          <h1>Ajude o Tadeuzinho a voltar para casa.</h1>
-          <p class="lead">Depois de um acidente grave na patinha, ele segue internado e precisa de cirurgia, exames, medicamentos e cuidados para se recuperar.</p>
-          <div class="hero-actions">
+          <h1 id="hero-title">Ajude o Tadeuzinho a voltar para casa.</h1>
+          <p class="lead" id="hero-lead">Depois de um acidente grave na patinha, ele segue internado e precisa de cirurgia, exames, medicamentos e cuidados para se recuperar.</p>
+          <div class="hero-actions" id="hero-actions">
             <a class="btn btn-primary" href="#ajudar">💛 Quero ajudar o Tadeu</a>
             <button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar esta história</button>
           </div>
-          <div class="mini-note">Cada contribuição e cada compartilhamento fazem diferença.</div>
+          <div class="mini-note" id="hero-note">Cada contribuição e cada compartilhamento fazem diferença.</div>
+        </div>
+
+        <div class="hero-photo">
+          <img src="assets/tadeu-grama-galho.jpeg" alt="Tadeuzinho na grama ao lado de um galho" />
+          <div class="hero-photo-label">O Tadeu antes do acidente: especialista em achar galhos maiores do que ele. 🌿</div>
         </div>
       </div>
     </div>
@@ -362,25 +648,106 @@
       </div>
     </section>
 
+
+    <section id="transparencia" class="transparency-section">
+      <div class="container">
+        <span class="eyebrow">Transparência</span>
+        <h2 class="section-title">Cada ajuda tem destino — e a prestação de contas fica aqui.</h2>
+        <p class="section-intro">A meta da vaquinha é de <strong>R$ 6.000,00</strong>. Nesta área, vamos atualizar o valor arrecadado e publicar os comprovantes dos principais gastos com internação, cirurgia, exames, medicamentos e recuperação.</p>
+
+        <div class="transparency-shell">
+          <div class="fund-card">
+            <div class="fund-label">Total arrecadado</div>
+            <div class="fund-amount" id="fund-amount">Carregando…</div>
+            <div class="fund-goal">de uma meta de <strong>R$ 6.000,00</strong></div>
+
+            <div class="progress-track" aria-label="Progresso da arrecadação">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-meta">
+              <span id="progress-percent">Atualizando…</span>
+              <span id="progress-remaining"></span>
+            </div>
+
+            <div class="fund-note">
+              <strong>Contador colaborativo:</strong> o total abaixo considera os valores informados pelos próprios doadores após a realização do PIX. Os comprovantes das despesas e as atualizações da recuperação ficam publicados nesta página.
+            </div>
+          </div>
+
+          <div class="proofs-card">
+            <div class="proofs-head">
+              <div>
+                <h3>Comprovantes e despesas</h3>
+                <p>Documentos publicados para acompanhar a destinação dos recursos.</p>
+              </div>
+              <span class="proof-count" id="proof-count">0 comprovantes</span>
+            </div>
+
+            <div class="proof-list" id="proof-list"></div>
+
+            <p class="transparency-footnote">Para preservar dados pessoais desnecessários, os comprovantes podem ser publicados com informações sensíveis ocultadas, mantendo visíveis os dados relevantes da despesa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="ajudar">
       <div class="container help-wrap">
         <div class="help-card">
           <span class="eyebrow">Como ajudar</span>
           <h2 class="section-title">Toda ajuda conta.</h2>
-          <p>A arrecadação será usada para custear os gastos veterinários decorrentes do acidente: internação, cirurgia, exames, medicamentos, curativos e acompanhamento da recuperação.</p>
+          <p>Faça o PIX pela chave ao lado e, depois, informe o valor que você enviou. O contador da vaquinha será atualizado automaticamente para que todos possam acompanhar quanto já conseguimos arrecadar.</p>
           <div class="help-list">
-            <div class="help-item"><span>💛</span><div><b>Contribua com qualquer valor</b><span>Mesmo uma quantia pequena ajuda a dividir esse peso.</span></div></div>
-            <div class="help-item"><span>↗</span><div><b>Compartilhe com outras pessoas</b><span>Um compartilhamento pode alcançar justamente quem consegue ajudar.</span></div></div>
-            <div class="help-item"><span>🐶</span><div><b>Acompanhe a recuperação</b><span>Esta página pode ser atualizada com notícias do pós-operatório.</span></div></div>
+            <div class="help-item"><span>1.</span><div><b>Faça o PIX</b><span>Use a chave informada nesta página.</span></div></div>
+            <div class="help-item"><span>2.</span><div><b>Informe o valor doado</b><span>Depois do pagamento, registre o valor para atualizar o contador.</span></div></div>
+            <div class="help-item"><span>3.</span><div><b>Acompanhe a prestação de contas</b><span>Você pode voltar a este site ou deixar seu e-mail para receber as atualizações.</span></div></div>
           </div>
-          <button class="btn btn-primary" type="button" onclick="compartilhar()">Compartilhar pelo celular</button>
+          <button class="btn btn-primary" type="button" onclick="compartilhar()">Compartilhar a história do Tadeu</button>
         </div>
 
         <aside class="pix-box">
-          <h3>Área para inserir a contribuição</h3>
-          <p>No protótipo, deixei este espaço pronto para receber o link oficial da vaquinha, chave PIX ou QR Code.</p>
-          <div class="placeholder">LINK_DA_VAQUINHA_OU_CHAVE_PIX</div>
-          <p style="font-size:.9rem;opacity:.8;margin-bottom:0">Substitua este texto pelos dados oficiais antes de publicar.</p>
+          <div class="donation-live-area">
+            <h3 class="pix-title">Contribuição por PIX</h3>
+            <p>Chave PIX do tipo e-mail:</p>
+            <div class="placeholder" id="pix-key">huppesamanda@gmail.com</div>
+            <button class="btn warning-btn" type="button" style="margin-top:14px" onclick="copiarPix()">Copiar chave PIX</button>
+
+            <div class="pix-divider"></div>
+
+            <h3 class="pix-title">Já fez o PIX?</h3>
+            <p>Informe abaixo quanto você doou para atualizar o contador da arrecadação.</p>
+
+            <form class="donation-form" id="donation-form" novalidate>
+              <div class="field">
+                <label for="donation-amount">Valor doado (R$)</label>
+                <input id="donation-amount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="Ex.: 50,00" required />
+              </div>
+
+              <div class="field">
+                <label for="donation-email">E-mail para prestação de contas <span style="font-weight:500;opacity:.7">(opcional)</span></label>
+                <input id="donation-email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" maxlength="254" />
+                <div class="field-help">Se você deixar seu e-mail, ele será usado somente para enviar atualizações e a prestação de contas desta vaquinha. Se preferir não informar, você pode acompanhar tudo por este site.</div>
+              </div>
+
+              <div class="honeypot" aria-hidden="true">
+                <label for="donation-website">Website</label>
+                <input id="donation-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <button class="btn warning-btn donation-submit" id="donation-submit" type="submit">Confirmar valor que doei</button>
+              <div class="form-status" id="donation-status" aria-live="polite"></div>
+            </form>
+
+            <div class="live-note">O contador é alimentado pelas informações declaradas pelos doadores. O PIX continua sendo realizado diretamente pela chave acima.</div>
+          </div>
+
+          <div class="goal-done-card" id="goal-done-card">
+            <div class="big">🎉🐾</div>
+            <h3>Conseguimos!</h3>
+            <p>A meta de <strong>R$ 6.000,00</strong> foi alcançada.</p>
+            <p><strong>Não são necessárias novas contribuições.</strong></p>
+            <p>Obrigada a cada pessoa que ajudou o Tadeuzinho. A partir de agora, esta página continuará sendo usada para publicar as atualizações e a prestação de contas.</p>
+          </div>
         </aside>
       </div>
     </section>
@@ -411,6 +778,201 @@
       stage.style.display = 'none';
       wrap.classList.add('active');
       video.play().catch(()=>{});
+    }
+
+    // ============================================================
+    // TRANSPARÊNCIA DA VAQUINHA
+    // O valor arrecadado vem do banco PostgreSQL por meio da API.
+    // Os comprovantes continuam sendo publicados manualmente aqui.
+    // ============================================================
+    const META = 6000;
+
+    const COMPROVANTES = [
+      // Exemplo:
+      // {
+      //   data: "23/08/2026",
+      //   descricao: "Atendimento veterinário e internação",
+      //   valor: 850.00,
+      //   arquivo: "assets/comprovantes/atendimento-23-08.pdf"
+      // }
+    ];
+
+    let submissionToken = (window.crypto && crypto.randomUUID)
+      ? crypto.randomUUID()
+      : String(Date.now()) + "-" + Math.random().toString(36).slice(2);
+
+    function moedaBR(valor){
+      return Number(valor || 0).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+    }
+
+    function renderComprovantes(){
+      const listEl = document.getElementById('proof-list');
+      const countEl = document.getElementById('proof-count');
+
+      if (countEl) {
+        countEl.textContent = COMPROVANTES.length + (COMPROVANTES.length === 1 ? ' comprovante' : ' comprovantes');
+      }
+
+      if (!listEl) return;
+
+      if (!COMPROVANTES.length) {
+        listEl.innerHTML = `
+          <div class="empty-proofs">
+            <strong>Os comprovantes serão publicados aqui.</strong>
+            Assim que as primeiras despesas forem organizadas, esta área passará a mostrar cada documento.
+          </div>`;
+      } else {
+        listEl.innerHTML = COMPROVANTES.map(item => `
+          <div class="proof-item">
+            <div>
+              <h4>${item.descricao}</h4>
+              <p>${item.data}</p>
+              ${item.arquivo ? `<a class="proof-link" href="${item.arquivo}" target="_blank" rel="noopener">Ver comprovante</a>` : ''}
+            </div>
+            <div class="proof-value">${moedaBR(item.valor)}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function aplicarEstadoDaMeta(status){
+      const arrecadado = Number(status.arrecadado || 0);
+      const meta = Number(status.meta || META);
+      const percentual = meta > 0 ? Math.min((arrecadado / meta) * 100, 100) : 0;
+      const restante = Math.max(meta - arrecadado, 0);
+      const atingida = Boolean(status.metaAtingida) || arrecadado >= meta;
+
+      const amountEl = document.getElementById('fund-amount');
+      const fillEl = document.getElementById('progress-fill');
+      const percentEl = document.getElementById('progress-percent');
+      const remainingEl = document.getElementById('progress-remaining');
+
+      if (amountEl) amountEl.textContent = moedaBR(arrecadado);
+      if (fillEl) fillEl.style.width = percentual.toFixed(1) + '%';
+      if (percentEl) percentEl.textContent = percentual.toFixed(percentual < 10 ? 1 : 0).replace('.', ',') + '% da meta';
+      if (remainingEl) remainingEl.textContent = atingida ? 'Meta alcançada! 💛' : 'Faltam ' + moedaBR(restante);
+
+      document.body.classList.toggle('goal-reached', atingida);
+
+      if (atingida) {
+        const title = document.getElementById('hero-title');
+        const lead = document.getElementById('hero-lead');
+        const actions = document.getElementById('hero-actions');
+        const note = document.getElementById('hero-note');
+
+        if (title) title.textContent = 'Conseguimos! A meta do Tadeuzinho foi alcançada. 💛';
+        if (lead) lead.textContent = 'Graças a tanta gente que ajudou, chegamos à meta necessária para o tratamento. Não são necessárias novas contribuições. Agora, esta página continuará acompanhando a recuperação e a prestação de contas.';
+        if (actions) actions.innerHTML = '<button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar essa boa notícia</button><a class="btn btn-primary" href="#transparencia">Ver prestação de contas</a>';
+        if (note) note.textContent = 'Obrigada a cada pessoa que fez parte disso. 🐾';
+      }
+    }
+
+    async function carregarArrecadacao(){
+      try {
+        const resposta = await fetch('/api/fundraising-status', {headers:{'Accept':'application/json'}});
+        if (!resposta.ok) throw new Error('Falha ao consultar o contador.');
+        const status = await resposta.json();
+        aplicarEstadoDaMeta(status);
+      } catch (erro) {
+        const amountEl = document.getElementById('fund-amount');
+        const percentEl = document.getElementById('progress-percent');
+        if (amountEl) amountEl.textContent = 'Indisponível';
+        if (percentEl) percentEl.textContent = 'Tente atualizar a página';
+        console.error(erro);
+      }
+    }
+
+    async function registrarDoacao(event){
+      event.preventDefault();
+
+      const form = document.getElementById('donation-form');
+      const amountInput = document.getElementById('donation-amount');
+      const emailInput = document.getElementById('donation-email');
+      const websiteInput = document.getElementById('donation-website');
+      const submit = document.getElementById('donation-submit');
+      const statusEl = document.getElementById('donation-status');
+
+      const amount = Number(String(amountInput.value).replace(',', '.'));
+      const email = emailInput.value.trim();
+
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+
+      if (!Number.isFinite(amount) || amount <= 0) {
+        statusEl.classList.add('error');
+        statusEl.textContent = 'Informe um valor válido maior que zero.';
+        amountInput.focus();
+        return;
+      }
+
+      if (email && !emailInput.validity.valid) {
+        statusEl.classList.add('error');
+        statusEl.textContent = 'Confira o endereço de e-mail informado.';
+        emailInput.focus();
+        return;
+      }
+
+      submit.disabled = true;
+      submit.textContent = 'Registrando…';
+
+      try {
+        const resposta = await fetch('/api/donations', {
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({
+            amount,
+            email: email || null,
+            website: websiteInput.value || '',
+            submissionToken
+          })
+        });
+
+        const dados = await resposta.json().catch(() => ({}));
+
+        if (resposta.status === 409 && dados.code === 'GOAL_REACHED') {
+          aplicarEstadoDaMeta(dados.status || {arrecadado:META, meta:META, metaAtingida:true});
+          statusEl.classList.add('success');
+          statusEl.textContent = 'A meta acabou de ser alcançada. Obrigada por querer ajudar! 💛';
+          return;
+        }
+
+        if (!resposta.ok) {
+          throw new Error(dados.error || 'Não foi possível registrar a contribuição.');
+        }
+
+        aplicarEstadoDaMeta(dados.status);
+        statusEl.classList.add('success');
+        statusEl.textContent = email
+          ? 'Obrigada! Seu valor foi somado ao contador e seu e-mail foi registrado para a prestação de contas. 💛'
+          : 'Obrigada! Seu valor foi somado ao contador. Você pode acompanhar a prestação de contas por esta página. 💛';
+
+        form.reset();
+        submissionToken = (window.crypto && crypto.randomUUID)
+          ? crypto.randomUUID()
+          : String(Date.now()) + "-" + Math.random().toString(36).slice(2);
+      } catch (erro) {
+        statusEl.classList.add('error');
+        statusEl.textContent = erro.message || 'Não foi possível registrar agora. Tente novamente.';
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Confirmar valor que doei';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderComprovantes();
+      carregarArrecadacao();
+      const form = document.getElementById('donation-form');
+      if (form) form.addEventListener('submit', registrarDoacao);
+    });
+
+    function copiarPix(){
+      const chave = 'huppesamanda@gmail.com';
+      navigator.clipboard.writeText(chave).then(() => {
+        alert('Chave PIX copiada: ' + chave);
+      }).catch(() => {
+        prompt('Copie a chave PIX:', chave);
+      });
     }
 
     function compartilhar(){
