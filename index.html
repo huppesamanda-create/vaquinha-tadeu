@@ -247,6 +247,73 @@
       display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:stretch;
     }
 
+    .thank-you-section{
+      padding:42px 0 54px;
+      background:linear-gradient(180deg,#fffaf1 0%,#f4eee3 100%);
+    }
+    .thank-you-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:34px 38px;
+      box-shadow:0 16px 44px rgba(78,58,37,.09);
+    }
+    .thank-you-kicker{
+      display:inline-flex;
+      align-items:center;
+      padding:.45rem .8rem;
+      border-radius:999px;
+      background:var(--green-soft);
+      color:#31523d;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+    .thank-you-card h2{
+      margin:.2rem 0 18px;
+      font-size:clamp(2rem,4vw,3.2rem);
+      letter-spacing:-.04em;
+    }
+    .thank-you-card p{
+      margin:0 0 1rem;
+      font-size:1.08rem;
+      line-height:1.75;
+      text-align:justify;
+    }
+    .thank-you-card p:last-of-type{margin-bottom:0}
+    .thank-you-signoff{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      font-weight:900;
+      color:#557b63;
+    }
+    .closed-summary{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:.8fr 1fr 1.2fr;
+      gap:12px;
+    }
+    .closed-summary > div{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 20px;
+    }
+    .closed-label{
+      display:block;
+      color:var(--muted);
+      font-size:.78rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:5px;
+    }
+    .closed-summary strong{
+      font-size:1.06rem;
+    }
     .quick-fundraising{
       padding:34px 0 54px;
       background:linear-gradient(180deg,#fffaf1 0%,#f4eee3 100%);
@@ -791,6 +858,7 @@
       .quick-head{display:block}
       .quick-head p{margin-top:10px}
       .quick-grid{grid-template-columns:1fr}
+      .closed-summary{grid-template-columns:1fr}
       .story-sliders{grid-template-columns:1fr}
       .donation-form.compact{grid-template-columns:1fr 1fr}
       .donation-form.compact .donation-submit{grid-column:1 / -1;width:100%}
@@ -810,6 +878,8 @@
       .hero-photo-label{right:10px;bottom:10px;font-size:.74rem}
       .quick-fundraising{padding:26px 0 42px}
       .quick-grid .fund-card,.quick-grid .pix-box{padding:21px}
+      .thank-you-card{padding:24px 22px}
+      .thank-you-card p{text-align:left}
       .story-full-card{padding:22px}
       .story-full-card p{text-align:left}
       .slider-card{padding:16px}
@@ -836,18 +906,17 @@
   </style>
 </head>
 <body>
-  <div class="goal-banner" id="goal-banner">💛 Conseguimos! A meta do Tadeuzinho foi alcançada e não são necessárias novas contribuições.</div>
   <header class="hero">
     <div class="container">
       <div class="hero-card">
         <div class="hero-copy">
-          <h1 id="hero-title">Ajude o Tadeuzinho a voltar para casa.</h1>
-          <p class="lead" id="hero-lead">Depois de um acidente grave na patinha, ele segue internado e precisa de cirurgia, exames, medicamentos e cuidados para se recuperar.</p>
+          <h1 id="hero-title">Conseguimos! 💛</h1>
+          <p class="lead" id="hero-lead">Não precisamos mais receber contribuições. O Tadeuzinho foi cercado por um carinho imenso de amigos e até de pessoas que nem conhecíamos.</p>
           <div class="hero-actions" id="hero-actions">
-            <a class="btn btn-primary" href="#ajudar">💛 Quero ajudar o Tadeu</a>
-            <button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar esta história</button>
+            <a class="btn btn-primary" href="#agradecimento">Ler nosso agradecimento</a>
+            <button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar essa boa notícia</button>
           </div>
-          <div class="mini-note" id="hero-note">Cada contribuição e cada compartilhamento fazem diferença.</div>
+          <div class="mini-note" id="hero-note">Agora esta página continua como espaço de atualizações e prestação de contas. 🐾</div>
         </div>
 
         <div class="hero-photo">
@@ -859,74 +928,36 @@
   </header>
 
   <main>
-    <section id="ajudar" class="quick-fundraising">
+    <section id="agradecimento" class="thank-you-section">
       <div class="container">
-        <div class="quick-head">
-          <div>
-            <span class="eyebrow">💛 Ajude o Tadeu</span>
-            <h2 class="section-title">Estamos buscando R$ 6.000,00 para o tratamento.</h2>
-          </div>
-          <p>Faça o PIX e, depois, informe o valor doado. Assim o contador é atualizado para todo mundo acompanhar a arrecadação.</p>
+        <div class="thank-you-card">
+          <div class="thank-you-kicker">💛 Obrigada por abraçarem o Tadeuzinho</div>
+          <h2>Queridos amigos,</h2>
+
+          <p><strong>Não precisamos mais receber contribuições!</strong></p>
+
+          <p>Faltam palavras para expressar o sentimento de gratidão por ser cercada de pessoas tão incríveis. Aos amigos de sempre e também às pessoas que nem conhecíamos, mas que escolheram nos apoiar, muito obrigada.</p>
+
+          <p>O amparo e o carinho de cada um são muito especiais e vão ser fundamentais para o Tadeuzinho se recuperar. Em breve, ele dará bons lambeijos em todos vocês!</p>
+
+          <p>Vou continuar colocando as atualizações por aqui. &lt;3</p>
+
+          <div class="thank-you-signoff">Com muito carinho e gratidão, obrigada! 🐾</div>
         </div>
 
-        <div class="quick-grid">
-          <div class="fund-card">
-            <div class="fund-label">Total arrecadado</div>
-            <div class="fund-amount" id="fund-amount">Carregando…</div>
-            <div class="fund-goal">de uma meta de <strong>R$ 6.000,00</strong></div>
-
-            <div class="progress-track" aria-label="Progresso da arrecadação">
-              <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <div class="progress-meta">
-              <span id="progress-percent">Atualizando…</span>
-              <span id="progress-remaining"></span>
-            </div>
-
-            <div class="fund-note">
-              O contador considera os valores informados pelos próprios doadores após a realização do PIX.
-            </div>
+        <div class="closed-summary">
+          <div>
+            <span class="closed-label">Arrecadação</span>
+            <strong>Encerrada 💛</strong>
           </div>
-
-          <aside class="pix-box">
-            <div class="donation-live-area">
-              <div class="fund-label" style="color:rgba(255,255,255,.68)">Chave PIX</div>
-              <div class="pix-quick-row">
-                <div class="placeholder" id="pix-key">huppesamanda@gmail.com</div>
-                <button class="btn warning-btn pix-copy-small" type="button" onclick="copiarPix()">Copiar PIX</button>
-              </div>
-
-              <form class="donation-form compact" id="donation-form" novalidate>
-                <div class="field">
-                  <label for="donation-amount">Quanto você doou?</label>
-                  <input id="donation-amount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="R$ 50,00" required />
-                </div>
-
-                <div class="field">
-                  <label for="donation-email">E-mail <span style="font-weight:500;opacity:.7">(opcional)</span></label>
-                  <input id="donation-email" name="email" type="email" autocomplete="email" placeholder="Para receber a prestação de contas" maxlength="254" />
-                </div>
-
-                <div class="honeypot" aria-hidden="true">
-                  <label for="donation-website">Website</label>
-                  <input id="donation-website" name="website" type="text" tabindex="-1" autocomplete="off" />
-                </div>
-
-                <button class="btn warning-btn donation-submit" id="donation-submit" type="submit">Somar ao contador</button>
-                <div class="form-status" id="donation-status" aria-live="polite"></div>
-              </form>
-
-              <div class="quick-email-note">Se você deixar seu e-mail, ele será usado somente para atualizações e prestação de contas. Se preferir, é só voltar a esta página para acompanhar.</div>
-            </div>
-
-            <div class="goal-done-card" id="goal-done-card">
-              <div class="big">🎉🐾</div>
-              <h3>Conseguimos!</h3>
-              <p>A meta de <strong>R$ 6.000,00</strong> foi alcançada.</p>
-              <p><strong>Não são necessárias novas contribuições.</strong></p>
-              <p>Esta página continuará sendo atualizada com a recuperação e a prestação de contas.</p>
-            </div>
-          </aside>
+          <div>
+            <span class="closed-label">Total informado pelos doadores</span>
+            <strong id="fund-amount">Carregando…</strong>
+          </div>
+          <div>
+            <span class="closed-label">A partir de agora</span>
+            <strong>Atualizações e prestação de contas</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -1092,10 +1123,7 @@
       </div>
     </section>
   </main>
-
-  <a class="btn btn-primary sticky-donate" href="#ajudar">💛 Ajudar o Tadeu</a>
-
-  <footer>
+<footer>
     <div class="container">
       <span>Vaquinha do Tadeuzinho • 2026</span>
       <span>Página criada para divulgação da recuperação do Tadeu.</span>
@@ -1170,34 +1198,13 @@
 
     function aplicarEstadoDaMeta(status){
       const arrecadado = Number(status.arrecadado || 0);
-      const meta = Number(status.meta || META);
-      const percentual = meta > 0 ? Math.min((arrecadado / meta) * 100, 100) : 0;
-      const restante = Math.max(meta - arrecadado, 0);
-      const atingida = Boolean(status.metaAtingida) || arrecadado >= meta;
-
       const amountEl = document.getElementById('fund-amount');
-      const fillEl = document.getElementById('progress-fill');
-      const percentEl = document.getElementById('progress-percent');
-      const remainingEl = document.getElementById('progress-remaining');
 
       if (amountEl) amountEl.textContent = moedaBR(arrecadado);
-      if (fillEl) fillEl.style.width = percentual.toFixed(1) + '%';
-      if (percentEl) percentEl.textContent = percentual.toFixed(percentual < 10 ? 1 : 0).replace('.', ',') + '% da meta';
-      if (remainingEl) remainingEl.textContent = atingida ? 'Meta alcançada! 💛' : 'Faltam ' + moedaBR(restante);
 
-      document.body.classList.toggle('goal-reached', atingida);
-
-      if (atingida) {
-        const title = document.getElementById('hero-title');
-        const lead = document.getElementById('hero-lead');
-        const actions = document.getElementById('hero-actions');
-        const note = document.getElementById('hero-note');
-
-        if (title) title.textContent = 'Conseguimos! A meta do Tadeuzinho foi alcançada. 💛';
-        if (lead) lead.textContent = 'Graças a tanta gente que ajudou, chegamos à meta necessária para o tratamento. Não são necessárias novas contribuições. Agora, esta página continuará acompanhando a recuperação e a prestação de contas.';
-        if (actions) actions.innerHTML = '<button class="btn btn-light" type="button" onclick="compartilhar()">↗ Compartilhar essa boa notícia</button><a class="btn btn-primary" href="#transparencia">Ver prestação de contas</a>';
-        if (note) note.textContent = 'Obrigada a cada pessoa que fez parte disso. 🐾';
-      }
+      // A arrecadação foi encerrada pela família. A página permanece
+      // apenas para atualizações e prestação de contas.
+      document.body.classList.add('goal-reached');
     }
 
     async function carregarArrecadacao(){
@@ -1209,8 +1216,7 @@
       } catch (erro) {
         const amountEl = document.getElementById('fund-amount');
         const percentEl = document.getElementById('progress-percent');
-        if (amountEl) amountEl.textContent = 'Indisponível';
-        if (percentEl) percentEl.textContent = 'Tente atualizar a página';
+        if (amountEl) amountEl.textContent = 'Consulte a prestação de contas';
         console.error(erro);
       }
     }
@@ -1364,8 +1370,8 @@
 
     function compartilhar(){
       const data = {
-        title: 'Ajude o Tadeuzinho',
-        text: 'O Tadeuzinho sofreu um acidente grave na patinha e precisa de ajuda com internação, cirurgia, exames e medicamentos. 💛🐾',
+        title: 'Conseguimos! Obrigada por ajudarem o Tadeuzinho 💛',
+        text: 'A arrecadação do Tadeuzinho foi encerrada. Obrigada a todos que ajudaram! Agora vamos continuar compartilhando a recuperação e a prestação de contas por aqui. 🐾',
         url: window.location.href
       };
       if (navigator.share) {
